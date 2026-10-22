@@ -1,0 +1,111 @@
+{
+  "base": {
+    "repository": "unsloth/Meta-Llama-3.1-8B-Instruct-bnb-4bit",
+    "revision": "f15c379fb32bb402fa06a7ae9aecb1febf4b79ec",
+    "original_training_revision": "unknown"
+  },
+  "selected_router": "router-earlier",
+  "selected_router_labels": {
+    "0": "GENERAL",
+    "1": "MATH",
+    "2": "SCIENCE"
+  },
+  "weights": {
+    "math_expert/adapter_model.safetensors": {
+      "sha256": "7583932aa47f6160e32f7f946a74c8de54412c6b1cca0eb9032a6bbd00fa1694",
+      "bytes": 335604696,
+      "tensor_count": 448
+    },
+    "science_expert/adapter_model.safetensors": {
+      "sha256": "afae54978c782c9cd99185c115174857ef08ea620a5e7d19081a578e123e7ba8",
+      "bytes": 335604696,
+      "tensor_count": 448
+    },
+    "general_expert/adapter_model.safetensors": {
+      "sha256": "110e81266646880fe202de27b90a51f5f5f606912eb10e0b83b02d713e70f2c4",
+      "bytes": 335604696,
+      "tensor_count": 448
+    },
+    "combined_expert/adapter_model.safetensors": {
+      "sha256": "e87bfc421da075c32aa5642c88d12b5fb252b5681ca8ffb8e4e4fca8009a7fec",
+      "bytes": 335604696,
+      "tensor_count": 448
+    },
+    "router/model.safetensors": {
+      "sha256": "5a6bcaf0e14baa6de22b6967a880a128fbac47e89949dce121023c6578c57f66",
+      "bytes": 737722356,
+      "tensor_count": 202
+    },
+    "base/model.safetensors": {
+      "sha256": "f6c8ab7a8b2790ce56f3ae3946ad39866fc5250b51b277c9d0eee83ac4f26a92",
+      "bytes": 5702746383,
+      "tensor_count": 1411
+    },
+    "router-earlier/model.safetensors": {
+      "sha256": "67a922c54132b8d996b26860b4732144b01f4d8524b86f5dc07455867cb15cde",
+      "bytes": 737722356,
+      "tensor_count": 202
+    },
+    "router-large-recovered/model-00004-of-00004.safetensors": {
+      "sha256": "3a59cf8542c8de7d7b08a39c6d4f4757de2dfe837dc6e817eed761e43daeba4b",
+      "bytes": 241448028,
+      "tensor_count": 77
+    },
+    "router-large-recovered/model-00001-of-00004.safetensors": {
+      "sha256": "03acc017a724079af1df6725b1a6f3423ae0be84746fac3a68fb6b3b0d03ebe8",
+      "bytes": 524697752,
+      "tensor_count": 1
+    },
+    "router-large-recovered/model-00003-of-00004.safetensors": {
+      "sha256": "608b19354b646cfd42ced70fe8a2c2269f1e6f8e747f1857df16d5c916e875b9",
+      "bytes": 487075016,
+      "tensor_count": 158
+    },
+    "router-large-recovered/model-00002-of-00004.safetensors": {
+      "sha256": "19ba35aa3ba8e3c0d60145b6a5a0b5c12afc310789f4b208d265d0f1489ca92a",
+      "bytes": 487087120,
+      "tensor_count": 158
+    },
+    "safety_expert/adapter_model.safetensors": {
+      "sha256": "671d15f670142a5f5e9bac1b0a6d408272504c1c047000a93c72251cee8153a2",
+      "bytes": 167832240,
+      "tensor_count": 448
+    },
+    "router-safety-v1/model.safetensors": {
+      "sha256": "6ddf6dabe7bcbec9f3a28c66bbf2a7c6e7190e1f931d10bf32123ffee4ec0509",
+      "bytes": 737725432,
+      "tensor_count": 202
+    },
+    "router-safety-large-v1/model.safetensors": {
+      "sha256": "61927647084b3dd07069ef5f2cf6af5bfaaabce0fcd4b2c8956d2292e171c200",
+      "bytes": 1740312648,
+      "tensor_count": 394
+    }
+  },
+  "safety_candidate": {
+    "adapter": "safety_expert",
+    "status": "trained; answer review pending; not serving",
+    "job": 6219959,
+    "license_scope": "PKU-SafeRLHF CC-BY-NC-4.0 noncommercial research/demo",
+    "router_candidates": {
+      "router-safety-v1": {
+        "sha256": "6ddf6dabe7bcbec9f3a28c66bbf2a7c6e7190e1f931d10bf32123ffee4ec0509",
+        "bytes": 737725432,
+        "tensor_count": 202,
+        "local_and_remote_hash_match": true,
+        "safety_validation_passed": false,
+        "safety_threshold": 0.46,
+        "status": "trained candidate; not serving"
+      },
+      "router-safety-large-v1": {
+        "sha256": "61927647084b3dd07069ef5f2cf6af5bfaaabce0fcd4b2c8956d2292e171c200",
+        "bytes": 1740312648,
+        "tensor_count": 394,
+        "local_and_remote_hash_match": true,
+        "safety_validation_passed": false,
+        "safety_threshold": 0.36,
+        "status": "trained candidate; not serving"
+      }
+    }
+  }
+}

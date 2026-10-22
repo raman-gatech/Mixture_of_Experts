@@ -1,0 +1,54 @@
+{
+  "verified_at_utc": "2026-10-22T14:07:57.962766+00:00",
+  "experiment_execution_complete": true,
+  "protocol_sha256": "7a06ef743e0e7c2aa13ded019c3ffe4a9f1ee9358cae22030fd9fc00020b0f59",
+  "arms": {
+    "parent-baseline-256": {
+      "answers": 500,
+      "answers_sha256": "ad2bd8566223c4d9adba6549dc1bbf79059a96bd7487395cac75d386425eb3a9",
+      "truncated": 117,
+      "math_numeric_proxy_matches": 169,
+      "math_cases": 200,
+      "science_phrase_proxy_matches": 70,
+      "science_reference_cases": 100,
+      "quality_review": "pending; proxies are not attributed correctness",
+      "safety_intent_adjudication": "pending; publisher labels are not verified intent"
+    },
+    "parent-precision-512": {
+      "answers": 500,
+      "answers_sha256": "965460a7c18e23a38e6de621c1aa49fb8fe6e8a8e5ee49c37d4ef6e005f28556",
+      "truncated": 39,
+      "math_numeric_proxy_matches": 171,
+      "math_cases": 200,
+      "science_phrase_proxy_matches": 69,
+      "science_reference_cases": 100,
+      "quality_review": "pending; proxies are not attributed correctness",
+      "safety_intent_adjudication": "pending; publisher labels are not verified intent"
+    },
+    "candidate-precision-512": {
+      "answers": 500,
+      "answers_sha256": "46342f9ea5e61cded0f19aa8b037717054a523340239979678db392f47f2e781",
+      "truncated": 36,
+      "math_numeric_proxy_matches": 165,
+      "math_cases": 200,
+      "science_phrase_proxy_matches": 64,
+      "science_reference_cases": 100,
+      "quality_review": "pending; proxies are not attributed correctness",
+      "safety_intent_adjudication": "pending; publisher labels are not verified intent"
+    }
+  },
+  "paired_comparison": {
+    "all500_input_hashes_equal": true,
+    "math_proxy_gained": 9,
+    "math_proxy_lost": 15,
+    "scope": "Matched precision512 settings; numeric proxy only, not proof of improved overall accuracy"
+  },
+  "production_accepted": false,
+  "answer_quality_accepted": false,
+  "independent_review": "pending",
+  "source_result_sha256": "30b45b992b1aff0a83cf81d75f2298a2f80351201e083d5cd1312cb90c69f183",
+  "prompt_suite_sha256": "89ae51c086b4f70b56ad9d6ab361a06ce2a6d7d79368226ad8caf5c47a7a5da9",
+  "selected_stage3_archive_sha256": "4b8703a040e54455597ad1e218b5e2a846cb04d930be35d8d37d8ee0cb38f8e5",
+  "scope": "Aggregate original research evidence; proxies are not independently assessed accuracy",
+  "experimentation_frozen": true
+}

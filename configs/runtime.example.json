@@ -1,0 +1,9 @@
+{
+  "selected_router": "router-earlier",
+  "router_labels": {"0": "GENERAL", "1": "MATH", "2": "SCIENCE"},
+  "base_repo": "unsloth/Meta-Llama-3.1-8B-Instruct-bnb-4bit",
+  "base_revision": "f15c379fb32bb402fa06a7ae9aecb1febf4b79ec",
+  "selection_basis": "28/30 correct on an authored development sanity set; not a final benchmark",
+  "restricted": true,
+  "paid_aws_provisioning": false
+}

@@ -1,0 +1,63 @@
+{
+  "verified_at_utc": "2026-10-22T03:19:28.367898+00:00",
+  "calibration_artifacts_verified": true,
+  "archive_sha256": "4b8703a040e54455597ad1e218b5e2a846cb04d930be35d8d37d8ee0cb38f8e5",
+  "archive_bytes": 21389547560,
+  "independently_restored_files": 22,
+  "validation_nll_relative_reduction": 0.1526351039109486,
+  "source_sha256": "0dc13a23d682b7b3d7849c12540d5af0814ee1bc809b5edf3e4ebba29dd73db8",
+  "trials": [
+    {
+      "variant": "expert-only",
+      "scale": 0.5,
+      "passed": false,
+      "nll": 2.1126567226254154,
+      "sha256": "10382b99d63fef85f868b250facb4577702a164f6c7588044b5d329b68723a84",
+      "max_merge_kl": 0.020431315526366234,
+      "failed_merge_probes": [
+        "esconv",
+        "gsm8k"
+      ],
+      "cache_passed": true,
+      "gate_values_changed": 0,
+      "exact_reload_passed": true
+    },
+    {
+      "variant": "expert-only",
+      "scale": 0.25,
+      "passed": false,
+      "nll": 2.4071957593610787,
+      "sha256": "b70edc30a2f999a94a89843c6913671352fd5c063bdaa6917b1f23c338751297",
+      "max_merge_kl": 0.00966008473187685,
+      "failed_merge_probes": [],
+      "cache_passed": false,
+      "gate_values_changed": 0,
+      "exact_reload_passed": true
+    },
+    {
+      "variant": "joint-gates",
+      "scale": 0.5,
+      "passed": true,
+      "nll": 2.1877882543232094,
+      "sha256": "34c3527fa280d07083cabfd28e41a0d3bec4281c64e4333017588b16c8721538",
+      "max_merge_kl": 0.00559250358492136,
+      "failed_merge_probes": [],
+      "cache_passed": true,
+      "gate_values_changed": 1400772,
+      "exact_reload_passed": true
+    },
+    {
+      "variant": "joint-gates",
+      "scale": 0.25,
+      "passed": true,
+      "nll": 2.4278262094927374,
+      "sha256": "513fcbf5a27205a125a22cff28aac381073edb8807031614c96666c9cb648fdc",
+      "max_merge_kl": 0.005252917297184467,
+      "failed_merge_probes": [],
+      "cache_passed": true,
+      "gate_values_changed": 1014445,
+      "exact_reload_passed": true
+    }
+  ],
+  "scope": "Original development/export evidence; five probes and 80 validation rows; no overall quality certification"
+}

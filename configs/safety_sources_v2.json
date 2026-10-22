@@ -1,0 +1,17 @@
+{
+  "esconv": {
+    "provider": "github",
+    "repository": "thu-coai/Emotional-Support-Conversation",
+    "revision": "f262d062ad74cb39b17ea476facc81568ddcba24",
+    "license": "Academic research only; copyright CoAI Group, Tsinghua University",
+    "purpose": "Human-written supportive conversations; positive participant feedback is not clinical safety annotation",
+    "files": ["ESConv.json", "README.md"]
+  },
+  "toxicchat": {
+    "repository": "lmsys/toxic-chat",
+    "revision": "29df8e4dba60e1f4af4b4075c0705c5b313548a8",
+    "license": "CC-BY-NC-4.0",
+    "purpose": "Human-annotated toxic real user prompts for routing; non-toxic does not establish non-safety intent",
+    "files": ["data/0124/toxic-chat_annotation_train.csv", "data/0124/toxic-chat_annotation_test.csv"]
+  }
+}

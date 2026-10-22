@@ -1,0 +1,21 @@
+services:
+  moe:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    network_mode: host
+    environment:
+      MOE_HOST: 127.0.0.1
+      MOE_MODEL_ROOT: /models
+      MOE_ROUTER_DIR: /models/router-earlier
+      MOE_API_TOKEN: ${MOE_API_TOKEN:-}
+    volumes:
+      - ${MOE_ARTIFACTS_DIR:?Set MOE_ARTIFACTS_DIR to a portable artifact bundle}:/models:ro
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    restart: unless-stopped

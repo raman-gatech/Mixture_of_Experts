@@ -1,0 +1,23 @@
+{
+  "profile": "native-internal-v1",
+  "candidate_release": "native-internal-v1-gptoss-r1",
+  "repository": "openai/gpt-oss-20b",
+  "revision": "6cee5e81ee83917806bbde320786a8fb61efebee",
+  "base": "artifacts/internal/native/candidates/gpt-oss-20b/base",
+  "data": "data/native/prepared/v1",
+  "max_length": 1024,
+  "context_limit": 2048,
+  "output_limit": 256,
+  "rank": 8,
+  "alpha": 16,
+  "target_modules": ["q_proj", "k_proj", "v_proj", "o_proj"],
+  "experts_and_gates_frozen": true,
+  "epochs": 1,
+  "gradient_accumulation": 16,
+  "learning_rate": 0.00002,
+  "eval_steps": 300,
+  "answer_validation_per_source": 64,
+  "seed": 42,
+  "production_accepted": false,
+  "access": "restricted_noncommercial_research"
+}

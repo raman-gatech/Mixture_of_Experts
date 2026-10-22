@@ -1,0 +1,21 @@
+{
+  "profile": "native-internal-v1",
+  "repository": "allenai/OLMoE-1B-7B-0125-Instruct",
+  "revision": "b89a7c4bc24fb9e55ce2543c9458ce0ca5c4650e",
+  "base": "artifacts/internal/native/base",
+  "data": "data/native/prepared/v1",
+  "max_length": 1024,
+  "context_limit": 2048,
+  "output_limit": 256,
+  "rank": 16,
+  "alpha": 32,
+  "target_modules": ["q_proj", "k_proj", "v_proj", "o_proj"],
+  "experts_and_gates_frozen": true,
+  "epochs": 1,
+  "microbatch": 1,
+  "gradient_accumulation": 16,
+  "learning_rate": 0.0001,
+  "seed": 42,
+  "production_accepted": false,
+  "access": "restricted_noncommercial_research"
+}

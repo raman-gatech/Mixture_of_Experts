@@ -1,0 +1,20 @@
+{
+  "requests": 10072,
+  "completed": 10072,
+  "concurrency": 4,
+  "output_budget": 128,
+  "input_tokens_range": [
+    512,
+    512
+  ],
+  "p95_first_token_seconds": 0.1969782840460539,
+  "p95_completion_seconds": 2.8975849251728505,
+  "elapsed_seconds": 7200.373406454921,
+  "reliability_passed": true,
+  "latency_passed": true,
+  "soak_passed": true,
+  "production_accepted": false,
+  "job_id": "6403909",
+  "source_sha256": "d4b08c1df5745b34d8811f027dca9f35bcec4db1993a3944b64815dad2faabbb",
+  "scope": "Historical Stage 2 workload-specific operations; not a live deployment or Stage 3 qualification"
+}

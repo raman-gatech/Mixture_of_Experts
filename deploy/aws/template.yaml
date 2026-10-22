@@ -1,0 +1,70 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Optional PAID private GPU host. Not deployed under the current zero-spend policy.
+Parameters:
+  VpcId:
+    Type: AWS::EC2::VPC::Id
+  SubnetId:
+    Type: AWS::EC2::Subnet::Id
+    Description: Subnet must provide outbound HTTPS or VPC endpoints for SSM, ECR and S3.
+  GpuAmiId:
+    Type: AWS::EC2::Image::Id
+    Description: GPU-ready Linux AMI with NVIDIA drivers, Docker NVIDIA runtime, and SSM Agent.
+  ArtifactBucket:
+    Type: String
+    Description: Existing private bucket containing the portable model bundle.
+  InstanceType:
+    Type: String
+    Default: g6.2xlarge
+    AllowedValues: [g6.2xlarge, g6.4xlarge, g5.2xlarge]
+Resources:
+  SecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: No inbound ports; access through Systems Manager port forwarding
+      VpcId: !Ref VpcId
+      SecurityGroupIngress: []
+  Role:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal: {Service: ec2.amazonaws.com}
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
+        - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
+      Policies:
+        - PolicyName: ReadModelBundle
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action: s3:ListBucket
+                Resource: !Sub arn:aws:s3:::${ArtifactBucket}
+              - Effect: Allow
+                Action: s3:GetObject
+                Resource: !Sub arn:aws:s3:::${ArtifactBucket}/moe/*
+  Profile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Roles: [!Ref Role]
+  Host:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: !Ref GpuAmiId
+      InstanceType: !Ref InstanceType
+      SubnetId: !Ref SubnetId
+      SecurityGroupIds: [!Ref SecurityGroup]
+      IamInstanceProfile: !Ref Profile
+      MetadataOptions: {HttpTokens: required}
+      BlockDeviceMappings:
+        - DeviceName: /dev/sda1
+          Ebs: {VolumeSize: 60, VolumeType: gp3, Encrypted: true, DeleteOnTermination: true}
+      Tags:
+        - Key: Name
+          Value: external-moe-private
+Outputs:
+  InstanceId:
+    Value: !Ref Host

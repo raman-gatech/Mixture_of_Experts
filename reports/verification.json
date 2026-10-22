@@ -1,0 +1,39 @@
+{
+  "checked_at_utc": "2026-10-22T16:30:54.327323+00:00",
+  "source_tree_scan_passed": true,
+  "files_checked": 256,
+  "errors": [],
+  "credential_check_scope": "Known-pattern scan and excluded-file checks; not a universal secret detector",
+  "remote_ci_verified": false,
+  "independent_human_review": "pending",
+  "production_accepted": false,
+  "answer_quality_accepted": false,
+  "release_tree_cpu_tests": {
+    "tests": 141,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 5,
+    "passed": 136,
+    "all_executed_tests_passed": true,
+    "junit_sha256": "1dbd9c05bd69d7e9ffa544eed1648df6ec78d007e4b5f2ddfc596563d839bf35",
+    "environment": "Preserved research environment on a CPU allocation; clean minimal environment checked separately"
+  },
+  "clean_minimal_environment": {
+    "python": "3.10",
+    "passed": 7,
+    "failed": 0,
+    "scope": "API, explicit CPU simulation, data preparation and packaging tests; fresh isolated environment"
+  },
+  "cpu_browser": {
+    "passed": true,
+    "simulated": true,
+    "model_inference": false,
+    "javascript_errors": []
+  },
+  "gpu_demo": {
+    "job_id": "6479705",
+    "state": "pending",
+    "qos": "coc-ice",
+    "live_verified": false
+  }
+}

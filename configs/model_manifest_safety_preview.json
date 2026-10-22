@@ -1,0 +1,38 @@
+{
+  "created_at_utc": "2026-10-13T16:00:28.664283+00:00",
+  "mode": "restricted research preview",
+  "rollout_accepted": false,
+  "router_validation_passed": false,
+  "independent_answer_review": "unassessed",
+  "weights": {
+    "base/model.safetensors": {
+      "bytes": 5702746383,
+      "sha256": "f6c8ab7a8b2790ce56f3ae3946ad39866fc5250b51b277c9d0eee83ac4f26a92"
+    },
+    "math_expert/adapter_model.safetensors": {
+      "bytes": 335604696,
+      "sha256": "7583932aa47f6160e32f7f946a74c8de54412c6b1cca0eb9032a6bbd00fa1694"
+    },
+    "science_expert/adapter_model.safetensors": {
+      "bytes": 335604696,
+      "sha256": "afae54978c782c9cd99185c115174857ef08ea620a5e7d19081a578e123e7ba8"
+    },
+    "general_expert/adapter_model.safetensors": {
+      "bytes": 335604696,
+      "sha256": "110e81266646880fe202de27b90a51f5f5f606912eb10e0b83b02d713e70f2c4"
+    },
+    "router/model.safetensors": {
+      "bytes": 737725432,
+      "sha256": "0d63a58823e1ddd49233d8bc35f749895ae6a720317a25c6df9c5a9a7d60a579"
+    },
+    "safety_expert/adapter_model.safetensors": {
+      "bytes": 167832240,
+      "sha256": "ba12a34effb72467548e845b6cd6e00693bc5370de71edd8eccb297f03991b41"
+    }
+  },
+  "required_setting": "MOE_ALLOW_SAFETY_CANDIDATE=1",
+  "limitations": "Routing acceptance failed; answers are not independently validated. No clinical certification.",
+  "portability": "Contains relative bundle weight names; models supplied separately",
+  "internal_moe": "on hold",
+  "paid_aws_resources_created": false
+}

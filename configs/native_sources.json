@@ -1,0 +1,24 @@
+{
+  "gsm8k": {
+    "provider": "github",
+    "repository": "openai/grade-school-math",
+    "revision": "3101c7d5072418e28b9008a6636bde82a006892c",
+    "license": "MIT",
+    "purpose": "Published human-written math questions and answer rationales; preserve official test split",
+    "files": ["grade_school_math/data/train.jsonl", "grade_school_math/data/test.jsonl", "LICENSE", "README.md"]
+  },
+  "sciq": {
+    "repository": "allenai/sciq",
+    "revision": "2c94ad3e1aafab77146f384e23536f97a4849815",
+    "license": "CC-BY-NC-3.0",
+    "purpose": "Crowdsourced science QA; exact correct answer followed by published supporting paragraph when available; preserve official splits",
+    "files": ["data/train-00000-of-00001.parquet", "data/validation-00000-of-00001.parquet", "data/test-00000-of-00001.parquet", "README.md"]
+  },
+  "dolly": {
+    "repository": "databricks/databricks-dolly-15k",
+    "revision": "bdd27f4d94b9c1f951818a7da7fd7aeea5dbff1a",
+    "license": "CC-BY-SA-3.0",
+    "purpose": "Human-written instruction/response pairs; group shared source context and duplicate instructions before deterministic splitting",
+    "files": ["databricks-dolly-15k.jsonl", "README.md"]
+  }
+}

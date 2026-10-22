@@ -1,0 +1,23 @@
+{
+  "aegis": {
+    "repository": "nvidia/Aegis-AI-Content-Safety-Dataset-2.0",
+    "revision": "d86bb8bedff51d25ac834ab7838f1cc61acb7a2c",
+    "license": "CC-BY-4.0",
+    "purpose": "Human-labelled prompts for router training only; responses are not SFT targets",
+    "files": ["train.json", "validation.json", "test.json"]
+  },
+  "pku": {
+    "repository": "PKU-Alignment/PKU-SafeRLHF",
+    "revision": "9421ffafec3fa40a1f1a7d567b4d525079477ecb",
+    "license": "CC-BY-NC-4.0",
+    "purpose": "Response-only SFT, retaining only explicitly safe preferred responses; noncommercial research use",
+    "files": ["data/Alpaca3-8B/train.jsonl", "data/Alpaca3-8B/test.jsonl"]
+  },
+  "do_not_answer": {
+    "repository": "LibrAI/do-not-answer",
+    "revision": "74e74f2e4507ef256fe536f78a776f4a1ff67955",
+    "license": "Apache-2.0",
+    "purpose": "External evaluation prompts only; excluded from all training",
+    "files": ["data_en.csv"]
+  }
+}
