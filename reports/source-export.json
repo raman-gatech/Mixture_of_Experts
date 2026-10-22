@@ -1421,8 +1421,10 @@
     "docs/RELEASE_CHECKLIST.md": {
       "source": "release/docs/RELEASE_CHECKLIST.md",
       "original_sha256": "f92c7fa465308769967833ab2a4a09b2ad58db5783d89c77eb9259c0c03e3974",
-      "public_sha256": "f92c7fa465308769967833ab2a4a09b2ad58db5783d89c77eb9259c0c03e3974",
-      "site_template_changed": false
+      "public_sha256": "5fbf4c5d4a66cae09f1556cb7b2349e8cb70130f42f2fd180104c2e820a5b744",
+      "site_template_changed": false,
+      "export_snapshot_sha256": "f92c7fa465308769967833ab2a4a09b2ad58db5783d89c77eb9259c0c03e3974",
+      "release_documentation_updated_after_export": true
     },
     "docs/REPRODUCIBILITY.md": {
       "source": "release/docs/REPRODUCIBILITY.md",

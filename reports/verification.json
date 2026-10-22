@@ -35,5 +35,14 @@
     "state": "pending",
     "qos": "coc-ice",
     "live_verified": false
-  }
+  },
+  "fresh_local_clone": {
+    "source_commit": "db706b72d3dac6c1835f4b158558d8148ae9c848",
+    "tests_passed": 7,
+    "failures": 0,
+    "install_passed": true,
+    "remote_clone": false,
+    "junit_sha256": "dde0a0228c21ecd94efeaac425e0b8347f972622971449284212d7008b1bf2b4"
+  },
+  "cpu_test_scope_note": "Full model-logic suite ran on first curated export. Final packaging changes were verified by the fresh-clone targeted suite; new report utilities compiled separately."
 }

@@ -9,7 +9,7 @@ remote CI is only complete when verified on the actual remote revision.
 - [x] Document CPU simulation separately from real inference.
 - [x] Document failed quality gates and pending independent review.
 - [x] Complete source export, credential scan and local-link verification.
-- [ ] Pass release-tree CPU checks and fresh-clone verification.
+- [x] Pass release-tree CPU checks and fresh local-clone verification (136 passed/5 skipped full suite; 7 passed fresh minimal clone).
 - [ ] Verify the fresh Stage 2 restricted GPU demo and record its expiry.
 - [ ] Produce the narrated walkthrough.
 - [ ] Create/push the public repository and verify remote CI.
