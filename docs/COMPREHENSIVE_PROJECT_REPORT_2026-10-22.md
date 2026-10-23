@@ -13,6 +13,8 @@ Answer-quality acceptance and production acceptance remain **false**. Independen
 human review is pending. The most recent restricted demo ran successfully through
 API/browser checks, missed its whole cold-start target, and is now stopped.
 
+**Publication/layout update — October 23, 2026:** source and reports have been pushed to [raman-gatech/Mixture_of_Experts](https://github.com/raman-gatech/Mixture_of_Experts). Flowchart SVG scaling and print sizing are corrected in this revision. Later release-status paragraphs retain the original October 22 context unless explicitly updated. Experimental results and acceptance decisions are unchanged.
+
 [TOC]
 
 ## 1. Executive summary
@@ -112,7 +114,7 @@ new metric, changed denominator or stronger claim.
 | Final three-arm collection | 1,500 answers verified; paired 500 input hashes match | Automatic proxies complete; independent quality/intent review pending |
 | Latest demo 6479705 | API/operations/browser passed; now stopped | 646.49-second cold start failed 600-second gate |
 | Source release checks | 136 passed/5 skipped; seven fresh-clone quick checks passed | Local checks, not remote CI or full artifact access |
-| Public repository / recording | Local release candidate exists; remote publication and narrated video pending | GitHub SSH works; repository creation access remains a dependency |
+| Public repository / recording | Source and reports pushed October 23; narrated video pending | Remote CI verification is tracked with the published commit |
 
 The answer to “is all evaluation done?” is therefore **no**. Planned frozen model
 generation and bounded numerical/proxy experiments are done. Independent human
@@ -959,7 +961,9 @@ Fixes that made the code execute are not automatically scientific improvements.
 | I25 | Slow sequential startup and misleading signal failure | Parallel engine/gateway imports, shared readiness deadline, explicit intentional shutdown | Latest whole cold start still failed at 646.49 seconds |
 | I26 | Lower Stage 3 development loss did not improve proxies | Same-input comparison; no candidate promotion | No further tuning on frozen held-out results |
 | I27 | Source ZIP excluded evidence linked by reports | Curated aggregate exports, portable report and link checks | Raw data/weights remain separate access dependencies |
-| I28 | GitHub SSH worked but repository creation API absent | Prepare local Git candidate and identify exact missing remote dependency | Remote publication/CI are not claimed complete |
+| I28 | GitHub SSH worked but repository creation API absent | Prepared local candidate; user supplied remote; source pushed October 23 | Remote CI is verified separately from successful push |
+| I29 | SVG graph scaling exceeded its viewBox and cropped flowcharts | Render SVG at 72 DPI; validate full graph extents; use explicit A4 image sizes | All 12 source graphs and 18 figure placements checked |
+| I30 | Delivered working-copy PDF had corrupt compressed/font streams | Preserve damaged copy, restore checksum-verified release PDF and provide image-based variant | Cause of file alteration remains unknown; validate delivered checksums |
 
 ## 18. Storage, scheduler and resource engineering
 
@@ -1640,7 +1644,7 @@ experiments. The following index locates the rest of the project documentation.
 | `docs/STAGE23_COMPLETION_2026-10-21.md` | Stage 2–3 bounded completion batch — October 21, 2026 |
 | `docs/STAGE23_RUNS_2026-10-20.md` | Stage2 and Stage3 queued experiments — October20,2026 |
 | `docs/STAGE2_ACCEPTANCE_2026-10-19.md` | Stage 2 acceptance evidence, October 19, 2026 |
-| `docs/STATUS.md` | Implementation status |
+| `docs/STATUS.md` | Comprehensive report update — October 22, 2026 |
 | `docs/STORAGE_CLEANUP_2026-10-21.md` | Home quota recovery — October 21, 2026 |
 | `docs/models/SAFETY_LORA_V2.md` | SAFETY LoRA v2 model card |
 | `docs/models/SAFETY_LORA_V3.md` | SAFETY LoRA v3 model card |

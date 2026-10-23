@@ -5,6 +5,8 @@ import html
 import json
 from pathlib import Path
 import re
+import struct
+import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 DOC = ROOT/'docs/COMPREHENSIVE_PROJECT_REPORT_2026-10-22.md'
@@ -22,7 +24,18 @@ def main():
         if not path.is_relative_to(ROOT) or not path.is_file():
             raise ValueError('Missing or non-project figure: '+source)
         mime='image/svg+xml' if path.suffix=='.svg' else 'image/png'
-        return 'src="data:'+mime+';base64,'+base64.b64encode(path.read_bytes()).decode()+'"'
+        payload=path.read_bytes()
+        if path.suffix=='.svg':
+            box=ET.fromstring(payload).attrib['viewBox'].split()
+            width,height=float(box[2]),float(box[3])
+        else:
+            if payload[:8] != b'\x89PNG\r\n\x1a\n':
+                raise ValueError('Expected PNG figure: '+source)
+            width,height=struct.unpack('>II',payload[16:24])
+        scale=min(166/width,168/height)
+        sizing=f'--print-width:{width*scale:.3f}mm;--print-height:{height*scale:.3f}mm'
+        return ('src="data:'+mime+';base64,'+base64.b64encode(payload).decode()+'" '
+                'data-figure="'+html.escape(path.name,quote=True)+'" style="'+sizing+'"')
     body=re.sub(r'src="([^"]+)"',image,body)
     def figure(match):
         tag=match.group(1)
@@ -34,10 +47,10 @@ def main():
     h1{font-size:34px;line-height:1.18;border-bottom:5px solid #2563eb;padding-bottom:20px;color:#10264a}h2{font-size:25px;line-height:1.25;margin-top:44px;color:#17345d;border-bottom:1px solid #cbd5e1;padding-bottom:9px}h3{font-size:19px;margin-top:28px;line-height:1.35}
     h1,h2,h3{break-after:avoid}p,li{orphans:3;widows:3}a{color:#1d4ed8;text-decoration:none}code{font-size:.83em;overflow-wrap:anywhere}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f1f5f9;padding:14px;border-left:3px solid #94a3b8}
     table{border-collapse:collapse;width:100%;font-size:12px;line-height:1.5;margin:20px 0;table-layout:auto}thead{display:table-header-group}th,td{vertical-align:top;text-align:left;border:1px solid #dbe2ea;padding:8px;overflow-wrap:anywhere}th{background:#edf3fb}tr{break-inside:avoid}
-    figure{margin:26px auto;break-inside:avoid;text-align:center}figure img{max-width:100%;max-height:850px;object-fit:contain}figcaption{font-size:12px;color:#475569;margin-top:9px;text-align:center}
+    figure{margin:26px auto;break-inside:avoid;page-break-inside:avoid;text-align:center}figure img{display:block;width:auto;height:auto;max-width:100%;max-height:760px;margin:0 auto;object-fit:contain}figcaption{font-size:12px;color:#475569;margin-top:9px;text-align:center}
     .toc{padding:18px 24px;background:#f8fafc;border:1px solid #dbe2ea;margin:30px 0}.toc ul{list-style:none;padding-left:18px}.toctitle{font-size:23px;font-weight:bold}.toc li{margin:5px 0}
     @page{size:A4;margin:19mm 16mm 18mm 16mm}
-    @media print{body{max-width:none;margin:0;padding:0;font-size:9.5pt;line-height:1.48}h1{font-size:25pt}h2{font-size:18pt;break-before:page;margin-top:0}h3{font-size:12.5pt}table{font-size:7.8pt;line-height:1.38}th,td{padding:5px}pre{font-size:8pt}figure img{max-height:185mm}figcaption{font-size:8pt}.toc{break-after:page;background:white;border:none;padding:0}.toc li{font-size:9pt}.toc a{color:#182339}a{color:inherit}}
+    @media print{body{max-width:none;margin:0;padding:0;font-size:9.5pt;line-height:1.48}h1{font-size:25pt}h2{font-size:18pt;break-before:page;margin-top:0}h3{font-size:12.5pt}table{font-size:7.8pt;line-height:1.38}th,td{padding:5px}pre{font-size:8pt}figure{width:100%;max-width:166mm;margin:5mm auto;break-inside:avoid-page;page-break-inside:avoid}figure img{width:var(--print-width);height:var(--print-height);max-width:none;max-height:none}figcaption{font-size:8pt;margin:2mm 0 0}.toc{break-after:page;background:white;border:none;padding:0}.toc li{font-size:9pt}.toc a{color:#182339}a{color:inherit}}
     '''
     payload='<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MoE Routing and Adaptation — Comprehensive Project Report</title><style>'+css+'</style></head><body>'+body+'</body></html>'
     OUT.mkdir(parents=True,exist_ok=True)

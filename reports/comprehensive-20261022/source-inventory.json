@@ -731,8 +731,8 @@
   {
     "path": "scripts/build_comprehensive_diagrams.py",
     "purpose": "Render the full project pipeline using Graphviz; no model execution.",
-    "bytes": 10893,
-    "sha256": "e609dba3e1bb4253562ae3e3d06f1b7cf2acd7027dea2305cb25d87fce3ca627",
+    "bytes": 11110,
+    "sha256": "218227588f04e05a25fdc520eff5239faa327bcce6ce1421a727025a86642c31",
     "definitions": [
       "graph",
       "main"
@@ -741,8 +741,8 @@
   {
     "path": "scripts/build_public_release.py",
     "purpose": "Export curated source and aggregate evidence without private workspace files.",
-    "bytes": 8770,
-    "sha256": "dc0a1772114dcc99d78e775d370076e9ac73cfab2b295ad5a3ea2b696db89966",
+    "bytes": 8784,
+    "sha256": "5a2ecb9565bf70254a6bc30dc5754821b51b81d1c2bacff831cc8c4bd86af193",
     "definitions": [
       "digest",
       "public_template",
@@ -1535,8 +1535,8 @@
   {
     "path": "scripts/render_comprehensive_report.py",
     "purpose": "Render the full Markdown report as standalone HTML (Markdown==3.8.2).",
-    "bytes": 3991,
-    "sha256": "f03189a98108f011ce21299078330e672f67162ee244aee3553b6e1e6151c080",
+    "bytes": 4880,
+    "sha256": "46be6dc85342307a190fb28350a1b1f929b48bebd8d8a33d0278203317e15608",
     "definitions": [
       "main"
     ]

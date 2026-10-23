@@ -49,8 +49,8 @@
   },
   "cpu_test_scope_note": "Full model-logic suite ran on first curated export. Final packaging changes were verified by the fresh-clone targeted suite; new report utilities compiled separately.",
   "comprehensive_report": {
-    "pdf_pages": 69,
-    "word_count": 15738,
+    "pdf_pages": 68,
+    "word_count": 15859,
     "diagram_count": 12,
     "evidence_records": 40,
     "report_validation_passed": true
@@ -64,5 +64,10 @@
     "passed": true,
     "files": 313,
     "local_markdown_links_passed": true
+  },
+  "remote_publication": {
+    "repository": "https://github.com/raman-gatech/Mixture_of_Experts",
+    "main_pushed": true,
+    "remote_ci": "Minimal checks passed; model-logic dependency setup corrected; checks rerunning"
   }
 }

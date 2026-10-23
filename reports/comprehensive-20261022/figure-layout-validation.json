@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "pages": 68,
+  "raster_images_checked": 6,
+  "out_of_page_images_or_vectors": [],
+  "sha256": "e49377484ecf645fdadbedb3bce9c62f78db9d460f410630fc265ed7345bad84",
+  "graphviz_svg_dpi": 72,
+  "max_figure_width_mm": 166,
+  "max_figure_height_mm": 168,
+  "source_svg_bounds_checks": 12,
+  "html_figure_checks": 18
+}

@@ -1,7 +1,7 @@
 {
-  "built_at_utc": "2026-10-23T01:45:01.191548+00:00",
-  "report_markdown_sha256": "a408477fcaf2b9018fcd8465dcf7f6672ac6d7f1e67c6aaefb231ae44c299f2a",
-  "word_count": 15738,
+  "built_at_utc": "2026-10-23T15:47:31.713565+00:00",
+  "report_markdown_sha256": "610be8a512c7d771ebe1f09c7283f2367caf377ac247880622e067fc89cfbd1b",
+  "word_count": 15859,
   "source_files": 233,
   "evidence_records": 40,
   "diagram_count": 12,
@@ -14,12 +14,12 @@
   "independent_human_review": "pending",
   "production_accepted": false,
   "answer_quality_accepted": false,
-  "html_sha256": "40bd7b2bedf4377a0d8d788c5168e2bace657a6d3e78e99599ed2ace394769a5",
-  "html_bytes": 1226270,
+  "html_sha256": "50ccc62235956052d81001fa52f3147710ca63827611a9d390cc5301f1d0a3e6",
+  "html_bytes": 1228978,
   "self_contained_html": true,
-  "pdf_sha256": "c1fe3254ae5db540a38999b8674f1fc541080938100aa685fd1d8fe0e6cb04ae",
-  "pdf_bytes": 1140074,
+  "pdf_sha256": "e49377484ecf645fdadbedb3bce9c62f78db9d460f410630fc265ed7345bad84",
+  "pdf_bytes": 1160246,
   "html_images_verified": 18,
   "html_javascript_errors": [],
-  "pdf_pages": 69
+  "pdf_pages": 68
 }

@@ -24,7 +24,10 @@ def graph(name, title, nodes, edges, direction='TB'):
     source = OUT / (name + '.dot')
     source.write_text('\n'.join(lines))
     for extension in ['svg', 'png']:
-        subprocess.run(['dot', '-T' + extension, '-Gdpi=140', str(source), '-o', str(OUT / (name + '.' + extension))], check=True)
+        # Graphviz 2.44 applies non-72 SVG DPI to the graph transform without
+        # expanding its viewBox, which clips nodes even when the image fits a page.
+        dpi = '72' if extension == 'svg' else '140'
+        subprocess.run(['dot', '-T' + extension, '-Gdpi=' + dpi, str(source), '-o', str(OUT / (name + '.' + extension))], check=True)
 
 
 def main():
