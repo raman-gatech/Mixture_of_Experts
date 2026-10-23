@@ -1,0 +1,28 @@
+digraph G {
+rankdir=TB;
+graph [bgcolor="white",pad="0.2",nodesep="0.25",ranksep="0.35",fontname="DejaVu Sans",fontsize=14];
+node [shape=box,style="rounded,filled",fillcolor="#eff6ff",color="#64748b",fontname="DejaVu Sans",fontsize=10,margin="0.14,0.10"];
+edge [color="#475569",fontname="DejaVu Sans",fontsize=9];
+label="Native profile request flow";labelloc=t;
+a [label="Authenticate; require active native profile",fillcolor="#eff6ff"];
+b [label="Validate prompt, output reservation and history profile",fillcolor="#eff6ff"];
+c [label="Reject system-role injection; trim oldest complete turns",fillcolor="#eff6ff"];
+d [label="Encode final-channel prompt within context budget",fillcolor="#eff6ff"];
+e [label="Admission available?",fillcolor="#fef3c7"];
+q [label="429 + Retry-After / queue timeout",fillcolor="#fee2e2"];
+f [label="Acquire semaphore; register request cancellation event",fillcolor="#eff6ff"];
+g [label="Stream from authenticated private engine",fillcolor="#eff6ff"];
+h [label="Guard fragmented private-channel delimiters",fillcolor="#eff6ff"];
+i [label="Buffer AUTO/SAFETY; stream ordinary task modes",fillcolor="#eff6ff"];
+j [label="done / cancelled / error; close upstream and free admission",fillcolor="#eff6ff"];
+a -> b;
+b -> c;
+c -> d;
+d -> e;
+e -> q [label="no"];
+e -> f [label="yes"];
+f -> g;
+g -> h;
+h -> i;
+i -> j;
+}

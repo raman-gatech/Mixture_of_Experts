@@ -1,0 +1,17 @@
+digraph G {
+rankdir=TB;
+graph [bgcolor="white",pad="0.2",nodesep="0.25",ranksep="0.35",fontname="DejaVu Sans",fontsize=14];
+node [shape=box,style="rounded,filled",fillcolor="#eff6ff",color="#64748b",fontname="DejaVu Sans",fontsize=10,margin="0.14,0.10"];
+edge [color="#475569",fontname="DejaVu Sans",fontsize=9];
+label="Storage roles and preservation";labelloc=t;
+h [label="NFS home\nsmall settings, credentials, OnDemand databases",fillcolor="#eff6ff"];
+s [label="Persistent scratch\nenvironments, data, checkpoints, archives, logs, caches",fillcolor="#eff6ff"];
+n [label="Allocated node-local temporary disk\nrestored model and hot working data",fillcolor="#eff6ff"];
+p [label="Public source export\ncode, aggregate reports and selected evidence only",fillcolor="#eff6ff"];
+b [label="Durable backups / existing external artifact storage\nsubject to access and redistribution terms",fillcolor="#eff6ff"];
+s -> n [label="stage immutable hot inputs"];
+n -> s [label="persist required outputs before shutdown"];
+s -> p [label="curate, sanitize, scan; exclude weights/data/secrets"];
+s -> b [label="verified backups"];
+h -> s [label="bulk relocation with hashes; retain needed aliases"];
+}

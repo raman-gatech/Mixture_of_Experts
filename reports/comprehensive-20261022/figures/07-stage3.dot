@@ -1,0 +1,23 @@
+digraph G {
+rankdir=TB;
+graph [bgcolor="white",pad="0.2",nodesep="0.25",ranksep="0.35",fontname="DejaVu Sans",fontsize=14];
+node [shape=box,style="rounded,filled",fillcolor="#eff6ff",color="#64748b",fontname="DejaVu Sans",fontsize=10,margin="0.14,0.10"];
+edge [color="#475569",fontname="DejaVu Sans",fontsize=9];
+label="Stage 3: actual native FFN and gate updates";labelloc=t;
+a [label="Verified Stage 2 parent",fillcolor="#eff6ff"];
+b [label="Freeze base and native biases; add FP32 low-rank expert factors",fillcolor="#eff6ff"];
+c [label="Native router scores and top-4 selection among 32 experts",fillcolor="#eff6ff"];
+d [label="Expert-only: train expert factors; gates frozen",fillcolor="#eff6ff"];
+e [label="Joint: same expert factors + existing native gate parameters",fillcolor="#eff6ff"];
+f [label="200-step matched pilots; fixed 1,000/80 row pool",fillcolor="#eff6ff"];
+g [label="Best/latest state + native usage telemetry",fillcolor="#eff6ff"];
+h [label="Fixed export calibration; select using development only",fillcolor="#eff6ff"];
+a -> b;
+b -> c;
+c -> d;
+c -> e;
+d -> f;
+e -> f;
+f -> g;
+g -> h;
+}

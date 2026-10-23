@@ -1,8 +1,15 @@
 {
-  "state": "not_yet_verified_for_release",
+  "state": "stopped_after_release_checks",
   "live": false,
   "target": "Stage 2 restricted ICE research demo",
   "permanent_public_endpoint": false,
   "historical_operations_job": "6403909",
-  "production_accepted": false
+  "production_accepted": false,
+  "latest_job_id": "6479705",
+  "api_operations_browser_passed": true,
+  "archive_to_ready_seconds": 646.4893112049904,
+  "archive_to_ready_target_seconds": 600,
+  "cold_start_passed": false,
+  "stopped_at_utc": "2026-10-22T18:41:41.221442+00:00",
+  "scope": "Latest API/browser/operations passed, whole cold-start target failed; historical full soak/recovery remains job6403909."
 }

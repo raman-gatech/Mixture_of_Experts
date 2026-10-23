@@ -10,7 +10,7 @@ remote CI is only complete when verified on the actual remote revision.
 - [x] Document failed quality gates and pending independent review.
 - [x] Complete source export, credential scan and local-link verification.
 - [x] Pass release-tree CPU checks and fresh local-clone verification (136 passed/5 skipped full suite; 7 passed fresh minimal clone).
-- [ ] Verify the fresh Stage 2 restricted GPU demo and record its expiry.
+- [ ] Close the latest cold-start target (646.49 seconds versus 600 required). Real API/browser/operations passed in 6479705; the service is now stopped.
 - [ ] Produce the narrated walkthrough.
 - [ ] Create/push the public repository and verify remote CI.
 - [ ] Publish a tagged source release with a manifest.

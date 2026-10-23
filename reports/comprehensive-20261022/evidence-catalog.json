@@ -1,0 +1,322 @@
+[
+  {
+    "id": "E01",
+    "purpose": "External preservation inventory",
+    "path": "audit/releases/external-v1-ice.json",
+    "sha256": "f573b81c8c453e79cef071004c43ae0710d792486ff705dbaeb385fa4f373d81",
+    "bytes": 5479,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E02",
+    "purpose": "Latest external/source preservation verification",
+    "path": "audit/completion-batch-20261021/preserved-external-artifacts-verified-20261022.json",
+    "sha256": "8a3637a46d4cd98143f1cb8bacf454ca86627eaa89cfd1ea65fd3a04b612726e",
+    "bytes": 5723,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E03",
+    "purpose": "External safety extension, v3 routing and comparison ledger",
+    "path": "external-workspace/audit/safety_improvement_v2.json",
+    "sha256": "70030d2063d2ecfa5ad7d60e1810d6ec7873e98dba773784c2046cdf3fd4c917",
+    "bytes": 120019,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E04",
+    "purpose": "Native prepared-data manifest",
+    "path": "data/native/prepared/v1/manifest.json",
+    "sha256": "b0c4d9671b68d01378b42e53d5164d2a0f75f083d67df573d29ff2af716e003e",
+    "bytes": 11294,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E05",
+    "purpose": "Rejected OLMoE candidate outcome",
+    "path": "audit/native/olmoe-v1-candidate-outcome.json",
+    "sha256": "f3d145f8c2a977e0d9de43b21dd78e41c5a0217c27f2077d26afc73dce8b261d",
+    "bytes": 1874,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E06",
+    "purpose": "One/two-GPU numerical/scaling comparison",
+    "path": "outputs/internal/native/gptoss/ddp-qualification-6329565/comparison.json",
+    "sha256": "cc7af7e1a36a09ab8963495b100afc0781da0d2ce343cfcc5830587fa4b9bc76",
+    "bytes": 83016,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E07",
+    "purpose": "Stage 2 archive restoration",
+    "path": "artifacts/internal/native/gptoss/v1/archive-20261018-r4-scored-calibrated/archive-verification.json",
+    "sha256": "a2152576c1982abf2cfa99dffc7f123be576486bcf0ac71e559436605ab8cee8",
+    "bytes": 2667,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E08",
+    "purpose": "Four-trial calibration and selected Stage 3 archive",
+    "path": "audit/completion-batch-20261021/verified-calibration-results.json",
+    "sha256": "0dc13a23d682b7b3d7849c12540d5af0814ee1bc809b5edf3e4ebba29dd73db8",
+    "bytes": 3375,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E09",
+    "purpose": "Real native expert qualification",
+    "path": "outputs/internal/native/gptoss/qualify-20261020-native-eval-v2/report.json",
+    "sha256": "ddc4902404b7c41e52cedb55566dc4db574f44afa6176add35253d49efe1b6df",
+    "bytes": 1381,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E10",
+    "purpose": "Frozen completion plan and selection identity",
+    "path": "audit/completion-batch-20261021/plan.json",
+    "sha256": "89f5371a54f4dc1a5612295c2bbb3dbc6bd9a45a58fad302ff73badb41d75de0",
+    "bytes": 3395,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E11",
+    "purpose": "Expert-only routing telemetry",
+    "path": "outputs/internal/native/gptoss/moe-e2-f36368c989-expert-only/expert-usage.json",
+    "sha256": "5a812ca7072973414c6f22b918af11ab3dca5dcff27f94085924274099823dac",
+    "bytes": 85899,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E12",
+    "purpose": "Joint-gate routing telemetry",
+    "path": "outputs/internal/native/gptoss/moe-e2-f36368c989-joint-gates/expert-usage.json",
+    "sha256": "a776d1d6dbdbc8ad1b0b6c9a6f7130d6e5baa27a346e6177bce491ded5943edb",
+    "bytes": 85897,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E13",
+    "purpose": "Earlier 526-answer attributed assessment",
+    "path": "audit/native/gptoss-r4-answer-assessment-20261019.json",
+    "sha256": "b2d5491c2e363b66e1e7a8b2ba4dc66469f117f52746e7d41bf66133b534cae4",
+    "bytes": 4769,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E14",
+    "purpose": "Final 1,500-answer verified comparison",
+    "path": "outputs/internal/evaluation/finish-20261021/FINAL_RESEARCH_RESULTS.json",
+    "sha256": "30b45b992b1aff0a83cf81d75f2298a2f80351201e083d5cd1312cb90c69f183",
+    "bytes": 6536,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E15",
+    "purpose": "Post-hoc qualitative sample manifest",
+    "path": "audit/completion-batch-20261021/qualitative-review-sample.json",
+    "sha256": "96882d472944c2d1ca89f4566f3570841fd91fc2ea2be1942c38802cfa8776f0",
+    "bytes": 3898,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E16",
+    "purpose": "Historical passing cold start",
+    "path": "audit/native/archive-cold-start-6403909.json",
+    "sha256": "251dae5abd893205417cb5e0d7e8842625b088fa9f473ff39ece1b365db2157a",
+    "bytes": 604,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E17",
+    "purpose": "Historical full Stage 2 soak",
+    "path": "audit/native/load-soak-6403909/summary.json",
+    "sha256": "d4b08c1df5745b34d8811f027dca9f35bcec4db1993a3944b64815dad2faabbb",
+    "bytes": 15086,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E18",
+    "purpose": "Historical native restart and external rollback",
+    "path": "audit/native/recovery-6403909.json",
+    "sha256": "5d9ed3c66e25ffb33728b1f266bddb69f130a1837c2c5a8ec12e6f1112006ccf",
+    "bytes": 238,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E19",
+    "purpose": "Latest real engine/gateway checks",
+    "path": "audit/native/live-6479705.json",
+    "sha256": "5d70597418eb9196a279e625fa798828c1b5210ab584cc9d9b1a338f8e71500f",
+    "bytes": 4286,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E20",
+    "purpose": "Latest real cancellation/history/overload checks",
+    "path": "audit/native/live-6479705-operations.json",
+    "sha256": "c27a422ea556d370af4f0d062d06ca10e3ef8e1e139413b1c6d03445be50d69a",
+    "bytes": 4491,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E21",
+    "purpose": "Latest desktop/mobile browser checks",
+    "path": "audit/native/browser-6479705/report.json",
+    "sha256": "c2fb6e30ea24e2e1057c0db4f6c85b3a4a5acd852af798f95c8b6bea2d150e4f",
+    "bytes": 948,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E22",
+    "purpose": "Latest failed cold-start gate",
+    "path": "audit/native/archive-cold-start-6479705.json",
+    "sha256": "ceff61a9387ce8e7e0aa4f99a6c6e7b62c9a9733956b67d22fbaba6a7b40976b",
+    "bytes": 605,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E23",
+    "purpose": "Latest stopped deployment record",
+    "path": "audit/native/deployment-6479705.json",
+    "sha256": "179a3880a70c15a56e9f2af62de8fc8a2d1232896f83b330318035b317375368",
+    "bytes": 771,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E24",
+    "purpose": "Home/scratch cleanup verification",
+    "path": "audit/completion-batch-20261021/final-storage-verification-20261022.json",
+    "sha256": "d8530453de1434ffea98530bd97084204c8afe81ee75b3e94929e6e67898ae83",
+    "bytes": 4183,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E25",
+    "purpose": "Storage relocation and cleanup narrative",
+    "path": "docs/STORAGE_CLEANUP_2026-10-21.md",
+    "sha256": "26a1a2db1eb672f1af1861d00fc2a96662a4e0669f5e81ea783bc6463f05e713",
+    "bytes": 2187,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E26",
+    "purpose": "Release-tree CPU test results",
+    "path": "audit/release-20261022/release-tests.xml",
+    "sha256": "1dbd9c05bd69d7e9ffa544eed1648df6ec78d007e4b5f2ddfc596563d839bf35",
+    "bytes": 20192,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E27",
+    "purpose": "Fresh local clone quick-start test results",
+    "path": "audit/release-20261022/fresh-clone-tests.xml",
+    "sha256": "dde0a0228c21ecd94efeaac425e0b8347f972622971449284212d7008b1bf2b4",
+    "bytes": 1008,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E28",
+    "purpose": "Preserved GPT-OSS inference overlay inventory",
+    "path": "audit/completion-batch-20261021/inference-environment-supplement-20261022.json",
+    "sha256": "48691ba5a9ddeec442249cc4b2014868a868819a76ef13b8d79413532ceb93b3",
+    "bytes": 837,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E29",
+    "purpose": "Parent qualitative review",
+    "path": "audit/completion-batch-20261021/parent-qualitative-review-20261022.json",
+    "sha256": "649c7d25aa391b4c8c1094b7c059218f4161c5d9687e53c9f604e090acc4b38d",
+    "bytes": 20315,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E30",
+    "purpose": "Candidate qualitative review",
+    "path": "audit/completion-batch-20261021/candidate-qualitative-review-20261022.json",
+    "sha256": "594439dec22616e576dd160f60ca3a0a3eeb5a26da62506a1e1cd07fc99d18eb",
+    "bytes": 10560,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E31",
+    "purpose": "Original immutable final research report",
+    "path": "docs/FINAL_RESEARCH_REPORT_2026-10-21.md",
+    "sha256": "b1083c842165f2313199ad10aca4d066b3cbe1edd8e48cc860932de682ae5482",
+    "bytes": 15495,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E32",
+    "purpose": "Expert-only completed pilot",
+    "path": "outputs/internal/native/gptoss/moe-e2-f36368c989-expert-only/report.json",
+    "sha256": "c7c36295a901b65af0bcca4522388068f9da84142c4c32db39d3e965cc6a7050",
+    "bytes": 1382,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E33",
+    "purpose": "Joint-gate completed pilot",
+    "path": "outputs/internal/native/gptoss/moe-e2-f36368c989-joint-gates/report.json",
+    "sha256": "a549d626df18b84d29e93e34fdc222c9fabd948bfe4ad52d1278078cb22cc6f1",
+    "bytes": 1387,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E34",
+    "purpose": "Stage 2 training and calibrated provenance",
+    "path": "outputs/internal/native/gptoss/20261018-r4-scored-calibrated/sft/provenance.json",
+    "sha256": "fb5311913888b0819cc4526fff19aca49359ffb0681fd9cb6e05887f61b5acc4",
+    "bytes": 46907,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E35",
+    "purpose": "Final independent artifact audit",
+    "path": "audit/completion-batch-20261021/FINAL_COMPLETION_AUDIT_20261022.json",
+    "sha256": "e75342fbf2ab2b88306fa4036710958894057d363f715d54a2a0679ac4665cee",
+    "bytes": 3318,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E36",
+    "purpose": "Actual joint-gate pilot configuration and environment",
+    "path": "outputs/internal/native/gptoss/moe-e2-f36368c989-joint-gates/metadata-6429777.json",
+    "sha256": "d1f8d99053a98bea3b8d662ede544169d5f954626b53f7cbe6325c90cba944af",
+    "bytes": 2744,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E37",
+    "purpose": "Pinned native data sources",
+    "path": "configs/native_sources.json",
+    "sha256": "763dd022d17b6569b42bab012a792560fa97f717862f6d0427a4fac5ec617dae",
+    "bytes": 1194,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E38",
+    "purpose": "Pinned original safety data sources",
+    "path": "configs/safety_sources.json",
+    "sha256": "17a1c66abe7f04c32ad2058efea5348c2004989087e72c9a8a0f68ffc7a63856",
+    "bytes": 941,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E39",
+    "purpose": "Pinned support/toxicity extension sources",
+    "path": "configs/safety_sources_v2.json",
+    "sha256": "5660130ef2b4d3aa183184f8f10d6b69bd256ed8fd47cddc9056acfa933505ed",
+    "bytes": 789,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  },
+  {
+    "id": "E40",
+    "purpose": "Historical external safety experiment report",
+    "path": "docs/SAFETY_RESULTS.md",
+    "sha256": "acf20f188979120a4a72306174bc9feb6b104917c1b6545f52a17f41962adec3",
+    "bytes": 10028,
+    "availability": "Preserved private research workspace; not necessarily bundled with public source"
+  }
+]

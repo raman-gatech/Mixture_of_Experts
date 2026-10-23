@@ -629,8 +629,10 @@
     "scripts/package_source.py": {
       "source": "scripts/package_source.py",
       "original_sha256": "f3d946ec9daa9ef8cf25b102b6a91c4e485607f555d1cd58132d60b7a8dc0cde",
-      "public_sha256": "f3d946ec9daa9ef8cf25b102b6a91c4e485607f555d1cd58132d60b7a8dc0cde",
-      "site_template_changed": false
+      "public_sha256": "66a15f8bc1bd58373314452850c1b4495fb80ba00c9ab97142760b2dcb09191d",
+      "site_template_changed": false,
+      "export_snapshot_sha256": "f3d946ec9daa9ef8cf25b102b6a91c4e485607f555d1cd58132d60b7a8dc0cde",
+      "release_documentation_updated_after_export": true
     },
     "scripts/plot_release_results.py": {
       "source": "scripts/plot_release_results.py",
@@ -1385,14 +1387,18 @@
     "CHANGELOG.md": {
       "source": "release/CHANGELOG.md",
       "original_sha256": "e67b872a299e146e1fc6fb4bf540d25a6cfc24a695e58e63fac2cca88b719301",
-      "public_sha256": "e67b872a299e146e1fc6fb4bf540d25a6cfc24a695e58e63fac2cca88b719301",
-      "site_template_changed": false
+      "public_sha256": "baa123aaeb52e81324f71bd7a6bbe1a4ffd71d6e5bd49472b181d85d5542febe",
+      "site_template_changed": false,
+      "export_snapshot_sha256": "e67b872a299e146e1fc6fb4bf540d25a6cfc24a695e58e63fac2cca88b719301",
+      "release_documentation_updated_after_export": true
     },
     "README.md": {
       "source": "release/README.md",
       "original_sha256": "d33d75db5306387d0714a227f501db11ec827a367a7cd3f53b29026daab6ddad",
-      "public_sha256": "d33d75db5306387d0714a227f501db11ec827a367a7cd3f53b29026daab6ddad",
-      "site_template_changed": false
+      "public_sha256": "d8f152ba1a9659981c190688f31fcb5e6bf2c54b34473e8d144a403a20bc4d8f",
+      "site_template_changed": false,
+      "export_snapshot_sha256": "d33d75db5306387d0714a227f501db11ec827a367a7cd3f53b29026daab6ddad",
+      "release_documentation_updated_after_export": true
     },
     "docs/CASE_STUDY.md": {
       "source": "release/docs/CASE_STUDY.md",
@@ -1421,7 +1427,7 @@
     "docs/RELEASE_CHECKLIST.md": {
       "source": "release/docs/RELEASE_CHECKLIST.md",
       "original_sha256": "f92c7fa465308769967833ab2a4a09b2ad58db5783d89c77eb9259c0c03e3974",
-      "public_sha256": "5fbf4c5d4a66cae09f1556cb7b2349e8cb70130f42f2fd180104c2e820a5b744",
+      "public_sha256": "c8208fc89d6b640e4a39bda0d20afc8deae215a82418a7be97e219b4672a8ee6",
       "site_template_changed": false,
       "export_snapshot_sha256": "f92c7fa465308769967833ab2a4a09b2ad58db5783d89c77eb9259c0c03e3974",
       "release_documentation_updated_after_export": true
@@ -1487,5 +1493,10 @@
       "site_template_changed": false
     }
   },
-  "credential_check": "Known pattern scan only; staged-file and documentation review are additionally required"
+  "credential_check": "Known pattern scan only; staged-file and documentation review are additionally required",
+  "comprehensive_report_addition": {
+    "path": "reports/comprehensive-20261022",
+    "report_markdown_sha256": "a408477fcaf2b9018fcd8465dcf7f6672ac6d7f1e67c6aaefb231ae44c299f2a",
+    "scope": "Saved evidence analysis only; no new model experiment"
+  }
 }

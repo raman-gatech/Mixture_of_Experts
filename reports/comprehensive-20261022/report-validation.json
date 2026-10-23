@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "pdf_pages": 69,
+  "all_40_evidence_hashes_match": true,
+  "all_18_images_rendered": true,
+  "pdf_text_boundaries_passed": true,
+  "critical_sections_and_metrics_present": true,
+  "report_markdown_hash_matches": true,
+  "raw_answer_hashes_reverified": true,
+  "new_training": false,
+  "independent_human_review": "pending"
+}

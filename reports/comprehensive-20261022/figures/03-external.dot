@@ -1,0 +1,29 @@
+digraph G {
+rankdir=TB;
+graph [bgcolor="white",pad="0.2",nodesep="0.25",ranksep="0.35",fontname="DejaVu Sans",fontsize=14];
+node [shape=box,style="rounded,filled",fillcolor="#eff6ff",color="#64748b",fontname="DejaVu Sans",fontsize=10,margin="0.14,0.10"];
+edge [color="#475569",fontname="DejaVu Sans",fontsize=9];
+label="External profile: one request and one active adapter";labelloc=t;
+a [label="Authenticate and validate request",fillcolor="#eff6ff"];
+b [label="Reserve queue slot; acquire exclusive model lock",fillcolor="#eff6ff"];
+c [label="Tokenize request and router windows",fillcolor="#eff6ff"];
+d [label="Compute per-window probabilities\nmaximum safety probability across windows",fillcolor="#eff6ff"];
+e [label="Safety threshold met?",fillcolor="#fef3c7"];
+f [label="SAFETY adapter priority",fillcolor="#eff6ff"];
+g [label="Manual domain or automatic ordinary domain",fillcolor="#eff6ff"];
+h [label="Set and verify named active adapter",fillcolor="#eff6ff"];
+i [label="Apply common policy + model chat template",fillcolor="#eff6ff"];
+j [label="Deterministic generation; decode generated tokens only",fillcolor="#eff6ff"];
+k [label="Return route/adapter/timing; release lock and slot",fillcolor="#eff6ff"];
+a -> b;
+b -> c;
+c -> d;
+d -> e;
+e -> f [label="yes"];
+e -> g [label="no"];
+f -> h;
+g -> h;
+h -> i;
+i -> j;
+j -> k;
+}

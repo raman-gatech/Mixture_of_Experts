@@ -1,0 +1,27 @@
+digraph G {
+rankdir=TB;
+graph [bgcolor="white",pad="0.2",nodesep="0.25",ranksep="0.35",fontname="DejaVu Sans",fontsize=14];
+node [shape=box,style="rounded,filled",fillcolor="#eff6ff",color="#64748b",fontname="DejaVu Sans",fontsize=10,margin="0.14,0.10"];
+edge [color="#475569",fontname="DejaVu Sans",fontsize=9];
+label="Serving lifecycle and recovery";labelloc=t;
+a [label="Finite normal-QoS GPU allocation",fillcolor="#eff6ff"];
+b [label="Verify archive; inspect node-local storage; restore",fillcolor="#eff6ff"];
+c [label="Start engine and tokenizer/gateway in parallel",fillcolor="#eff6ff"];
+d [label="Authenticate exact-release readiness; record whole cold-start clock",fillcolor="#eff6ff"];
+e [label="API/operations/browser checks",fillcolor="#eff6ff"];
+f [label="If full qualification: fixed-workload soak",fillcolor="#eff6ff"];
+g [label="Stop native children; restart same native profile",fillcolor="#eff6ff"];
+h [label="Stop native; load external rollback and verify real answer",fillcolor="#eff6ff"];
+i [label="Restore native; verify again",fillcolor="#eff6ff"];
+j [label="Intentional stop/allocation signal; stop owned children and mark stopped",fillcolor="#eff6ff"];
+a -> b;
+b -> c;
+c -> d;
+d -> e;
+e -> f [label="full qualification"];
+f -> g;
+g -> h;
+h -> i;
+i -> j;
+e -> j [label="restricted demo after serving window"];
+}

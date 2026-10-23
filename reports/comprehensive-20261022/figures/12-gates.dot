@@ -1,0 +1,21 @@
+digraph G {
+rankdir=TB;
+graph [bgcolor="white",pad="0.2",nodesep="0.25",ranksep="0.35",fontname="DejaVu Sans",fontsize=14];
+node [shape=box,style="rounded,filled",fillcolor="#eff6ff",color="#64748b",fontname="DejaVu Sans",fontsize=10,margin="0.14,0.10"];
+edge [color="#475569",fontname="DejaVu Sans",fontsize=9];
+label="Separate acceptance gates";labelloc=t;
+a [label="Training and artifact integrity",fillcolor="#eff6ff"];
+b [label="Numerical export and reload qualification",fillcolor="#eff6ff"];
+c [label="Operating qualification: startup, API, load, recovery",fillcolor="#eff6ff"];
+d [label="Answer quality and benign-sensitive behavior",fillcolor="#eff6ff"];
+e [label="Independent reviewer/intent assessment",fillcolor="#eff6ff"];
+f [label="Research source release with explicit limitations",fillcolor="#dcfce7"];
+g [label="Production acceptance blocked",fillcolor="#fee2e2"];
+a -> b;
+b -> c;
+c -> d;
+d -> e;
+b -> f [label="engineering evidence"];
+d -> g [label="failed quality gates"];
+e -> g [label="review pending"];
+}

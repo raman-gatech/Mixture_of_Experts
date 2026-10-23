@@ -1,0 +1,27 @@
+digraph G {
+rankdir=TB;
+graph [bgcolor="white",pad="0.2",nodesep="0.25",ranksep="0.35",fontname="DejaVu Sans",fontsize=14];
+node [shape=box,style="rounded,filled",fillcolor="#eff6ff",color="#64748b",fontname="DejaVu Sans",fontsize=10,margin="0.14,0.10"];
+edge [color="#475569",fontname="DejaVu Sans",fontsize=9];
+label="System design and trust boundaries";labelloc=t;
+u [label="Browser / API client",fillcolor="#eff6ff"];
+t [label="SSH tunnel to allocated compute node",fillcolor="#eff6ff"];
+a [label="FastAPI gateway\napplication bearer authentication",fillcolor="#eff6ff"];
+e [label="External backend\nbounded queue + model lock",fillcolor="#eff6ff"];
+r [label="DeBERTa classifier\nlabel metadata + safety threshold",fillcolor="#eff6ff"];
+l [label="Shared Llama base\nselected named LoRA adapter",fillcolor="#eff6ff"];
+n [label="Native backend\nadmission, context, history, SSE",fillcolor="#eff6ff"];
+v [label="Private loopback vLLM engine\ndistinct server-only credential",fillcolor="#eff6ff"];
+m [label="GPT-OSS native token router\nand sparse FFN experts",fillcolor="#eff6ff"];
+p [label="Persistent scratch\narchives, hashes and reports",fillcolor="#eff6ff"];
+u -> t;
+t -> a;
+a -> e [label="external profile"];
+e -> r;
+r -> l;
+a -> n [label="native profile"];
+n -> v;
+v -> m;
+p -> l [label="verified weights"];
+p -> m [label="restore to node-local disk"];
+}

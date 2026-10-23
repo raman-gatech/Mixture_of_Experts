@@ -1,0 +1,25 @@
+digraph G {
+rankdir=TB;
+graph [bgcolor="white",pad="0.2",nodesep="0.25",ranksep="0.35",fontname="DejaVu Sans",fontsize=14];
+node [shape=box,style="rounded,filled",fillcolor="#eff6ff",color="#64748b",fontname="DejaVu Sans",fontsize=10,margin="0.14,0.10"];
+edge [color="#475569",fontname="DejaVu Sans",fontsize=9];
+label="Stage 2: attention adaptation and selection";labelloc=t;
+a [label="Qualify pinned GPT-OSS base and final-channel formatting",fillcolor="#eff6ff"];
+b [label="Freeze FFN experts/gates; attach attention LoRA",fillcolor="#eff6ff"];
+c [label="Response-only SFT; checkpoint optimizer/scheduler/RNG/cursor",fillcolor="#eff6ff"];
+d [label="Resume with same data/config/source identity",fillcolor="#eff6ff"];
+e [label="Full run: 1,489 steps; best checkpoint 300",fillcolor="#eff6ff"];
+f [label="Correct symmetric final-answer extraction; preserve legacy scores",fillcolor="#eff6ff"];
+g [label="Declared scales 0.5 / 0.25 / 0.125\n128 fixed validation answers",fillcolor="#eff6ff"];
+h [label="Select nonzero 0.125 update passing per-domain tolerance",fillcolor="#eff6ff"];
+i [label="Numerical export, immutable archive and operational qualification",fillcolor="#eff6ff"];
+a -> b;
+b -> c;
+c -> d [label="allocation ends"];
+d -> c;
+c -> e [label="completed"];
+e -> f;
+f -> g;
+g -> h;
+h -> i;
+}

@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DIRECTORIES = ('src', 'web', 'scripts', 'training', 'evaluation', 'tests', 'configs', 'docs', 'deploy', '.github', 'tools', 'reports')
 FILES = ('README.md', 'PROJECT_COMPLETION_PLAN.md', 'LICENSE', 'pyproject.toml',
          'requirements-api.lock', 'requirements-cpu-demo.lock', 'CHANGELOG.md', '.gitignore', '.dockerignore', '.env.example')
-SUFFIXES = {'.py', '.js', '.css', '.html', '.md', '.json', '.yaml', '.yml', '.toml', '.txt', '.sh', '.sbatch', '.lock', '.png', '.svg', '.pdf'}
+SUFFIXES = {'.py', '.js', '.css', '.html', '.md', '.json', '.yaml', '.yml', '.toml', '.txt', '.sh', '.sbatch', '.lock', '.png', '.svg', '.pdf', '.dot'}
 SECRETS = re.compile(rb'hf_[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16}|-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----|https?://[^\s/:]+:[^\s/@]+@')
 
 

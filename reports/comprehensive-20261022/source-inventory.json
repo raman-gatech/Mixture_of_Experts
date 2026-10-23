@@ -1,0 +1,2203 @@
+[
+  {
+    "path": "src/internal_moe/__init__.py",
+    "purpose": "Experimental token-routed MoE; independent of the external serving backend.",
+    "bytes": 82,
+    "sha256": "6b330402cfdba3c65eb26198eeab5a77e179486e46e64da31d6eeeafe05d0b76",
+    "definitions": []
+  },
+  {
+    "path": "src/internal_moe/layers.py",
+    "purpose": "Sparse token dispatch with differentiable gates and no token dropping.",
+    "bytes": 3067,
+    "sha256": "0bcaa7e7351ce7462d13543cb8da5bf0661aafa9db18bf2758f640d08b5b875c",
+    "definitions": [
+      "SparseMoE"
+    ]
+  },
+  {
+    "path": "src/internal_moe/model.py",
+    "purpose": "Small causal language model for validating internal routing before upcycling.",
+    "bytes": 4544,
+    "sha256": "ea2f152f783d4f198dbcd25233d6728bd1c4dbd6e16798a452f6610870619767",
+    "definitions": [
+      "TinyMoEConfig",
+      "Block",
+      "TinyMoELM"
+    ]
+  },
+  {
+    "path": "src/moe_router/__init__.py",
+    "purpose": "External mixture of experts application.",
+    "bytes": 47,
+    "sha256": "8a8c790311ae615a1edab544bdbbd5f8a256cf1d69ddd2f5edea95d478719cae",
+    "definitions": []
+  },
+  {
+    "path": "src/moe_router/__main__.py",
+    "purpose": "Definitions: ",
+    "bytes": 390,
+    "sha256": "86848d91903d04487dc01853d91874a223ff2fbebdc30fcdbbe6d5c88ecc7013",
+    "definitions": []
+  },
+  {
+    "path": "src/moe_router/api.py",
+    "purpose": "Definitions: Query, HistoryMessage, StreamQuery, create_app",
+    "bytes": 8498,
+    "sha256": "e67626c6e87d75c990d8d7c7156e1fe1634c895cbd8cc794630b5dfda0ad63d7",
+    "definitions": [
+      "Query",
+      "HistoryMessage",
+      "StreamQuery",
+      "create_app"
+    ]
+  },
+  {
+    "path": "src/moe_router/artifacts.py",
+    "purpose": "Definitions: sha256, inspect_safetensors",
+    "bytes": 1091,
+    "sha256": "40260d5488869b30160ee48707bc44b7fe7134a67694b0a05d1c59fdfc734599",
+    "definitions": [
+      "sha256",
+      "inspect_safetensors"
+    ]
+  },
+  {
+    "path": "src/moe_router/backend.py",
+    "purpose": "Definitions: BusyError, InputError, validate_artifacts, Backend",
+    "bytes": 10650,
+    "sha256": "56945a3b0162cab8e8b7a9eebb45e44277b413817d66f99bd6d460080df1fccc",
+    "definitions": [
+      "BusyError",
+      "InputError",
+      "validate_artifacts",
+      "Backend"
+    ]
+  },
+  {
+    "path": "src/moe_router/backends/__init__.py",
+    "purpose": "Separate external PEFT and private native engine profiles.",
+    "bytes": 65,
+    "sha256": "65dbcd9d1af2b1437e509955180597428f91c7ba14e089ad8392c7a3d3fdaf42",
+    "definitions": []
+  },
+  {
+    "path": "src/moe_router/backends/internal_vllm.py",
+    "purpose": "Private native engine client with admission, disconnect cancellation, and SSE.",
+    "bytes": 10455,
+    "sha256": "f35e7793dbbb4ed60d39478446943a6ecb1dd0d86f0c1213534280a06e0d49aa",
+    "definitions": [
+      "NativeBackend",
+      "_Timeout"
+    ]
+  },
+  {
+    "path": "src/moe_router/conversation.py",
+    "purpose": "Stateless, per-profile bounded history; never accept a client system role.",
+    "bytes": 1117,
+    "sha256": "867636ed176aa0bd605a8622a0b6a7b73e615474279078d4f4bab2b59011171d",
+    "definitions": [
+      "prepare_messages"
+    ]
+  },
+  {
+    "path": "src/moe_router/data_io.py",
+    "purpose": "JSONL uses physical newlines; Unicode separators inside JSON strings are data.",
+    "bytes": 269,
+    "sha256": "bca9e118292bc1239be2648149a6b6818ffc22d20ee868d70337f68db6ec5864",
+    "definitions": [
+      "read_jsonl"
+    ]
+  },
+  {
+    "path": "src/moe_router/engine_auth.py",
+    "purpose": "vLLM ASGI middleware: require a server-only credential on every endpoint.",
+    "bytes": 1341,
+    "sha256": "82508b4f33ac5d9ef06bdec02db65f1917fe171871b9c0242c3b25979623068f",
+    "definitions": [
+      "EngineAuth"
+    ]
+  },
+  {
+    "path": "src/moe_router/gptoss_expert_adapter.py",
+    "purpose": "Training-only low-rank updates to GPT-OSS's actual packed FFN experts.",
+    "bytes": 11600,
+    "sha256": "68abe86fab99d37fc58c99de03bcc4aad28c759e6c86d96550d20e01a660dba1",
+    "definitions": [
+      "GptOssExpertAdapter",
+      "_mlps",
+      "configure_expert_adapters",
+      "set_gate_trainable",
+      "_adapter_parameters",
+      "adapter_state_dict",
+      "load_adapter_state_dict",
+      "merge_expert_adapters"
+    ]
+  },
+  {
+    "path": "src/moe_router/gptoss_format.py",
+    "purpose": "Validated final-channel format for the pinned GPT-OSS candidate only.",
+    "bytes": 3840,
+    "sha256": "c76b1ed1514d594d67a8c8f51e12ac170cb4fbf8a1f0e82c7017366274620952",
+    "definitions": [
+      "chat_ids",
+      "prompt_ids",
+      "completion_options",
+      "FinalChannelStream",
+      "final_text",
+      "encode_example"
+    ]
+  },
+  {
+    "path": "src/moe_router/native_data.py",
+    "purpose": "Shared native task instructions and assistant-only tokenization.",
+    "bytes": 2538,
+    "sha256": "b5954fe182542e37b25ed4d045aa34bde899d7bfd783b67b01c1ef6013085cdb",
+    "definitions": [
+      "system_for",
+      "user_text",
+      "encode_row",
+      "verify_dataset"
+    ]
+  },
+  {
+    "path": "src/moe_router/native_export.py",
+    "purpose": "Keep runtime-only positional buffers canonical when changing weight dtype.",
+    "bytes": 2814,
+    "sha256": "e806f6d43a1cc3eb81f83265ba45411453570b470b1ebd3218892ab137904475",
+    "definitions": [
+      "runtime_buffers",
+      "cast_export_weights",
+      "runtime_buffer_hashes",
+      "merge_attention_locally_fp32"
+    ]
+  },
+  {
+    "path": "src/moe_router/router_metrics.py",
+    "purpose": "Metrics support known domains and partially labelled benign safety examples.",
+    "bytes": 5412,
+    "sha256": "06a00d6ee9d6d4f97508e1e135ede9473a02377aa19adc7e5e92139fbc355b2d",
+    "definitions": [
+      "routing_metrics",
+      "select_threshold"
+    ]
+  },
+  {
+    "path": "src/moe_router/router_training.py",
+    "purpose": "Loss on complete prompt groups, matching inference's maximum safety window.",
+    "bytes": 1329,
+    "sha256": "aa9a6aab8cfc695a21664e8ec99993c48a39982b2fb17bf7a4f107525aead933",
+    "definitions": [
+      "windowed_partial_loss"
+    ]
+  },
+  {
+    "path": "src/moe_router/safety.py",
+    "purpose": "Safety routing takes priority over a manual domain request.",
+    "bytes": 2297,
+    "sha256": "2e5b9869092d044625479efd9f37474fdc4aa94c31b4e11358cfec177da2c878",
+    "definitions": [
+      "choose_expert"
+    ]
+  },
+  {
+    "path": "src/moe_router/settings.py",
+    "purpose": "Definitions: load_local_env, Settings",
+    "bytes": 4284,
+    "sha256": "eb44b97d133fb55e1c88c06d5364e05bce78d84a3e718c053afad3b181628eeb",
+    "definitions": [
+      "load_local_env",
+      "Settings"
+    ]
+  },
+  {
+    "path": "src/moe_router/validation_answers.py",
+    "purpose": "Conservative numeric answer extraction; never search for the reference in a reply.",
+    "bytes": 1661,
+    "sha256": "b1037683e32c6d91a211d3412c6164751cd6c024d3dc7cace765c0752d633a6b",
+    "definitions": [
+      "numeric_value",
+      "final_numeric_answer",
+      "math_match"
+    ]
+  },
+  {
+    "path": "web/app.js",
+    "purpose": "Browser event, request, history and stream behavior",
+    "bytes": 6437,
+    "sha256": "b1dac782387d5090317fe411ee6b0c8daf2a09c6df57b644c81b9471f91913e4",
+    "definitions": []
+  },
+  {
+    "path": "web/index.html",
+    "purpose": "Browser UI markup/styles",
+    "bytes": 2880,
+    "sha256": "e405a2fa617e34eaffd5c88ddbe6806e0d9256809047e0fd935b1dde3c5148c4",
+    "definitions": []
+  },
+  {
+    "path": "web/style.css",
+    "purpose": "Browser UI markup/styles",
+    "bytes": 2948,
+    "sha256": "50b02c99764177004031a840bb2281d9f40a3d58483c4a38e087ad1d8500101b",
+    "definitions": []
+  },
+  {
+    "path": "training/apply_policy_review.py",
+    "purpose": "Apply completed, attributable reviews to training rows only, failing closed.",
+    "bytes": 5106,
+    "sha256": "3e9ac43ca443714ba9480103de77c96ae51fd6496b84c0223fabd2893cbbcb29",
+    "definitions": [
+      "accepted_reviews"
+    ]
+  },
+  {
+    "path": "training/audit_gptoss_targets.py",
+    "purpose": "Read-only CPU audit of exactly the supervised tokens in a pinned GPT-OSS run.",
+    "bytes": 5956,
+    "sha256": "6a885d1e7575c9811a79cac0ff823578ce0702d03b841d45c5b0e542e4ddd973",
+    "definitions": [
+      "digest",
+      "quantiles",
+      "audit",
+      "main"
+    ]
+  },
+  {
+    "path": "training/calibrate_gptoss_adapter.py",
+    "purpose": "Validation-only shrinkage of a completed LoRA; original training and gates stay frozen.",
+    "bytes": 14242,
+    "sha256": "7dab84ea92ebac3115710c04373d1f0a0fa4138b78884c343dfc7dd138a91073",
+    "definitions": [
+      "scale_state",
+      "write_json",
+      "assess",
+      "main"
+    ]
+  },
+  {
+    "path": "training/export_policy_review.py",
+    "purpose": "Export real training prompts for policy annotation; never invent training labels.",
+    "bytes": 3906,
+    "sha256": "dec5b6291f0e8849bbff1c731d9d997b2f9b4bb4f421922cc72726d3134a5461",
+    "definitions": [
+      "main"
+    ]
+  },
+  {
+    "path": "training/gptoss_distributed.py",
+    "purpose": "Checkpoint and topology migration rules for the qualified native GPT-OSS trainer.",
+    "bytes": 11165,
+    "sha256": "b14e2b8ed11766a5b8e51bdd477b5abccce4bbe473b462e9462cf271485dadde",
+    "definitions": [
+      "digest",
+      "mark_complete",
+      "validate_checkpoint",
+      "latest_complete",
+      "migrate",
+      "archive_previous_results",
+      "callback",
+      "trainer_class"
+    ]
+  },
+  {
+    "path": "training/launch_gptoss_distributed.py",
+    "purpose": "Forward Slurm's batch pre-timeout signal to the torchrun worker processes.",
+    "bytes": 521,
+    "sha256": "96716cea00f7184f609ba2eb83c05ccc1c79ccb85cf8930e3cbf185eee6e95c7",
+    "definitions": [
+      "forward_checkpoint_signal"
+    ]
+  },
+  {
+    "path": "training/prepare_native_data.py",
+    "purpose": "Prepare provenance-bound, answer-bearing native SFT data without generating targets.",
+    "bytes": 14423,
+    "sha256": "1b08e145fd5d966adc15aef37ffeec8babf5133f51999a7b16350bd15062e2eb",
+    "definitions": [
+      "key",
+      "sha",
+      "prompt_keys",
+      "verify_inputs",
+      "candidates",
+      "partition",
+      "protected_files",
+      "prepare"
+    ]
+  },
+  {
+    "path": "training/prepare_router_data.py",
+    "purpose": "Deduplicate before splitting; quarantine ambiguous labels rather than guessing.",
+    "bytes": 2818,
+    "sha256": "d300c39fcb0a2278d2547c37014073ee8b802d95658a0597c4e9cc4f225b389d",
+    "definitions": [
+      "normalize",
+      "prepare"
+    ]
+  },
+  {
+    "path": "training/prepare_safety_data.py",
+    "purpose": "Build substantive router/SFT corpora from pinned annotated public datasets.",
+    "bytes": 8250,
+    "sha256": "7bc5ac1305af7b2cf995bfbd134bf2492500072a81ab559bd393b294d1e1a685",
+    "definitions": [
+      "normalize",
+      "prompt_key",
+      "select_safe_response",
+      "write_rows",
+      "prepare"
+    ]
+  },
+  {
+    "path": "training/prepare_safety_v2.py",
+    "purpose": "Add real annotated toxic prompts and human-written support to immutable v1.",
+    "bytes": 10964,
+    "sha256": "c3bf47daf9f9c7d2092fddba7072ec8d3906285d183d52694bb733656e3d6e91",
+    "definitions": [
+      "key",
+      "write",
+      "supportive_pairs",
+      "prepare"
+    ]
+  },
+  {
+    "path": "training/qualify_gptoss_ddp.py",
+    "purpose": "Bounded real-data one/two-GPU throughput and gradient-equivalence qualification.",
+    "bytes": 13581,
+    "sha256": "db43f6a3bb385f7436623e1d5e4efe4b63c5ba73a6132cc9426590e572f18ad2",
+    "definitions": [
+      "digest",
+      "sample_indices",
+      "objective_scale",
+      "prepare",
+      "run",
+      "compare",
+      "main"
+    ]
+  },
+  {
+    "path": "training/run_gptoss_checkpointed.py",
+    "purpose": "Operational checkpoint policy around the identity-pinned GPT-OSS trainer.",
+    "bytes": 5394,
+    "sha256": "2f29096b897662056d742381450f1fb2a117eda74ae2f29809cd9e6d43681e84",
+    "definitions": [
+      "CheckpointPolicy",
+      "checkpoint_callback",
+      "guarded_checkpoint_save",
+      "main"
+    ]
+  },
+  {
+    "path": "training/run_gptoss_distributed.py",
+    "purpose": "Two-rank continuation of the identity-pinned trainer, with explicit topology lineage.",
+    "bytes": 6998,
+    "sha256": "3ada00edb70ec4ef1d5a8980952f92ed8804bc25c7450a2d112e0ed2fef3f50b",
+    "definitions": [
+      "main"
+    ]
+  },
+  {
+    "path": "training/run_gptoss_single_resume.py",
+    "purpose": "Single-GPU continuation of complete distributed checkpoints, preserving global batch.",
+    "bytes": 3182,
+    "sha256": "2029b0a8da39c7b24ba7f5ab4965a144cf2cffefe8d52c31ef1831275dda4dbf",
+    "definitions": [
+      "single_trainer_class",
+      "main"
+    ]
+  },
+  {
+    "path": "training/smoke_internal_moe.py",
+    "purpose": "CPU-sized reproducible mechanics check; synthetic tokens are not an LLM benchmark.",
+    "bytes": 2881,
+    "sha256": "038cc506c1b973fa9840889ea39f7aec9f78401827cf4762b01d24539c3ac43b",
+    "definitions": [
+      "main"
+    ]
+  },
+  {
+    "path": "training/train_expert.py",
+    "purpose": "Response-only QLoRA with audited filtering, dynamic padding, and resumable checkpoints.",
+    "bytes": 10965,
+    "sha256": "69ed13a022b98879689481db10eaa05fdc1b0469c1cb81502a391ceffe114853",
+    "definitions": [
+      "encode_rows",
+      "ResponseCollator",
+      "main"
+    ]
+  },
+  {
+    "path": "training/train_gptoss.py",
+    "purpose": "Real published-data attention LoRA, selected by validation answers rather than loss.",
+    "bytes": 13109,
+    "sha256": "c6f62974c1cf959d66c9b97dd7d6d7335fe20746db18692a25f96c3b02e92a42",
+    "definitions": [
+      "write_json",
+      "encode_split",
+      "normalize",
+      "match_answer",
+      "product_score",
+      "AnswerValidation",
+      "main"
+    ]
+  },
+  {
+    "path": "training/train_gptoss_experts.py",
+    "purpose": "Actual expert/gate adaptation: real-data qualification then bounded pilot.",
+    "bytes": 26743,
+    "sha256": "b347b36fd15d49a65771e7892f3ad1ae5663af78ac0738b090f85df8b33403b0",
+    "definitions": [
+      "pin_template_date",
+      "digest",
+      "atomic_json",
+      "prepare",
+      "step_indices",
+      "rng_state",
+      "restore_rng",
+      "checkpoint_storage_headroom",
+      "save_checkpoint",
+      "load_checkpoint",
+      "run",
+      "main"
+    ]
+  },
+  {
+    "path": "training/train_native.py",
+    "purpose": "Fresh BF16 attention LoRA on the native MoE; experts/gates remain frozen.",
+    "bytes": 11484,
+    "sha256": "8c13f8ab0e10cf0a0633cc5310836f5bf317456c6feeb7625ba0266cba036241",
+    "definitions": [
+      "ResponseCollator",
+      "WalltimeSave",
+      "FiniteMetrics",
+      "encode_split",
+      "main"
+    ]
+  },
+  {
+    "path": "training/train_router.py",
+    "purpose": "Train a router on cleaned splits; choose checkpoints using validation only.",
+    "bytes": 3086,
+    "sha256": "377a6bbab9015fa2d6137c85de4e2dec192f88bc81e8f051443cfb30fad842b0",
+    "definitions": [
+      "Rows"
+    ]
+  },
+  {
+    "path": "training/train_safety_router.py",
+    "purpose": "Four-way router training with partial benign labels and validation calibration.",
+    "bytes": 13642,
+    "sha256": "ffa1159b8554cc52cdfddcf39bb9a34a592f805bae54c02fb09afca16c9687af",
+    "definitions": [
+      "partial_loss",
+      "infer",
+      "main"
+    ]
+  },
+  {
+    "path": "evaluation/carry_native_reviews.py",
+    "purpose": "Carry existing assessments only for byte-identical prompts and answers.",
+    "bytes": 3586,
+    "sha256": "e30709f3ffad45986861fe8b2371700bbfdc57f763e96ffc11bc785551e548c2",
+    "definitions": [
+      "sha",
+      "carry",
+      "read",
+      "main"
+    ]
+  },
+  {
+    "path": "evaluation/check_native_browser.py",
+    "purpose": "Actual desktop/mobile native UI checks against the private allocated gateway.",
+    "bytes": 3324,
+    "sha256": "c02362ca114259e258c237477f40ae5de58266cc4f8954b74737835851071abf",
+    "definitions": []
+  },
+  {
+    "path": "evaluation/compare_experts.py",
+    "purpose": "Produce a blind-review table; model generation alone is not a quality score.",
+    "bytes": 1971,
+    "sha256": "14b185f5948a38d9b7e643318cc8a0070056cde35ff1e6b196a08ef11ccc5ab2",
+    "definitions": []
+  },
+  {
+    "path": "evaluation/compare_safety.py",
+    "purpose": "Blinded answer review on protected real prompts; no heuristic safety-score claim.",
+    "bytes": 10333,
+    "sha256": "3b1b4cabc017a3c87aa71433140af66a6eb0c4a35576adf3686a0fc363a3131d",
+    "definitions": [
+      "select_rows",
+      "main"
+    ]
+  },
+  {
+    "path": "evaluation/evaluate_native_product.py",
+    "purpose": "Real fixed-suite answer collection with declared automatic checks and blank reviews.",
+    "bytes": 9064,
+    "sha256": "56225c2d590dd3d527b50d1df1f295fdd15dd4fec54f8fc58be1c12845a57e86",
+    "definitions": [
+      "normalized",
+      "automatic_check",
+      "main"
+    ]
+  },
+  {
+    "path": "evaluation/evaluate_router.py",
+    "purpose": "Definitions: metrics",
+    "bytes": 6492,
+    "sha256": "c0267b9cc17924050064a37736028270605db269ac3306e74917016058fc9edc",
+    "definitions": [
+      "metrics"
+    ]
+  },
+  {
+    "path": "evaluation/finalize_safety_v2.py",
+    "purpose": "Collect completed experiment evidence; never promote unreviewed models.",
+    "bytes": 2809,
+    "sha256": "0fca34865824866f224fdd3d54712fd406bf12c04127dde4f4b274cf3dd8c910",
+    "definitions": [
+      "load",
+      "sha"
+    ]
+  },
+  {
+    "path": "evaluation/load_native_product.py",
+    "purpose": "Allocated-node 500-request reliability run and optional two-hour sustained soak.",
+    "bytes": 7592,
+    "sha256": "183b0d4a593ec482e66f2fe6bf1e6c39458129c1f56704853ff4b82911401f76",
+    "definitions": [
+      "percentile",
+      "load_prompt",
+      "varied_prompt",
+      "main"
+    ]
+  },
+  {
+    "path": "evaluation/prepare_expert_confirmatory_suite.py",
+    "purpose": "Freeze a second comparison suite before Stage 3 pilot results are available.",
+    "bytes": 6229,
+    "sha256": "94707f4dba656605858775320fac6cc5902fcd1a947aceddcb698619f8910faa",
+    "definitions": [
+      "normalized",
+      "digest",
+      "read",
+      "choose",
+      "main"
+    ]
+  },
+  {
+    "path": "evaluation/prepare_gptoss_validation_review.py",
+    "purpose": "Prepare hash-bound semantic comparison sheets without changing training gates.",
+    "bytes": 6190,
+    "sha256": "081b9c09a18c730d764f6cd0296cb6e7f6ab7ed7a37a12b651bb290354d82af2",
+    "definitions": [
+      "digest",
+      "read",
+      "prepare",
+      "main"
+    ]
+  },
+  {
+    "path": "evaluation/prepare_native_release_suite.py",
+    "purpose": "Freeze 500 real heldout tasks; safety intent/review scores remain unassessed.",
+    "bytes": 4025,
+    "sha256": "8b73bb8d113dfa2e451c5a8ad8779fd82e9e3cd40ba5a5fe2a2784691051cc18",
+    "definitions": [
+      "normalize",
+      "pick"
+    ]
+  },
+  {
+    "path": "evaluation/prepare_native_safety_supplement.py",
+    "purpose": "Freeze separately reviewed real holdouts to close intent coverage gaps.",
+    "bytes": 5180,
+    "sha256": "ea95b861f959faab9a870adbbebafc139390f12c5e8a4892e51d5425c67fb48a",
+    "definitions": [
+      "digest",
+      "normalized",
+      "main"
+    ]
+  },
+  {
+    "path": "evaluation/prepare_router_format_check.py",
+    "purpose": "Paired formatting diagnostic using real held-out prompts; never training data.",
+    "bytes": 1988,
+    "sha256": "58dc5d0d21ffe3489f72d63514a75687818556151be4ad2a16601ae93ae50c14",
+    "definitions": [
+      "main"
+    ]
+  },
+  {
+    "path": "evaluation/probe_native_operations.py",
+    "purpose": "Live gateway cancel/history/overload and private-engine cleanup probes.",
+    "bytes": 6148,
+    "sha256": "9e68304cf8c61de50a425b6835b7932a3af4d45202ac3c3201c8308b3e5ab4d3",
+    "definitions": [
+      "answer_from_sse",
+      "main"
+    ]
+  },
+  {
+    "path": "evaluation/smoke.py",
+    "purpose": "Real model smoke test; verifies router and selected expert, not answer quality.",
+    "bytes": 1329,
+    "sha256": "acbb321b5b224ecedb16ae4fb09da3c39841727355ff8c420bc69d989f9561e8",
+    "definitions": []
+  },
+  {
+    "path": "evaluation/smoke_safety_api.py",
+    "purpose": "Real-weight candidate API checks using protected prompts; no serving promotion.",
+    "bytes": 5270,
+    "sha256": "845fa51f51de1dd391113395d2c421595ffa354dfba23724d1f802e8adc29587",
+    "definitions": [
+      "main"
+    ]
+  },
+  {
+    "path": "evaluation/summarize_gptoss_validation_review.py",
+    "purpose": "Full-denominator validation review coverage; never overrides training/export gates.",
+    "bytes": 5347,
+    "sha256": "d32d3645172ba73f17094e2a801e19ac26af2f148e626b58daac57620710e528",
+    "definitions": [
+      "summarize",
+      "main"
+    ]
+  },
+  {
+    "path": "evaluation/summarize_native_accuracy.py",
+    "purpose": "Keep attributed correctness intervals separate from unreviewed answer-key proxies.",
+    "bytes": 3959,
+    "sha256": "aeac50b74ed432eab93daf15cc48b4fc9ac9c7a4ee22acd95aa2a522d65059ba",
+    "definitions": [
+      "summarize_accuracy",
+      "main"
+    ]
+  },
+  {
+    "path": "evaluation/summarize_native_agent_review.py",
+    "purpose": "Validate attributed review provenance and report coverage without imputing scores.",
+    "bytes": 5392,
+    "sha256": "8cbd4fcf0f4f4273b744f3e3a9282bb6e75aa19ea25ecf9be1ea338c4e91b897",
+    "definitions": [
+      "read",
+      "summarize",
+      "main"
+    ]
+  },
+  {
+    "path": "evaluation/summarize_native_safety.py",
+    "purpose": "Combine frozen original and supplemental intent coverage without label shortcuts.",
+    "bytes": 5495,
+    "sha256": "42c9e0f3ac5ed78558c2d2be5f776ed808ce3e67555f364f6d2242711755302c",
+    "definitions": [
+      "digest",
+      "main"
+    ]
+  },
+  {
+    "path": "evaluation/summarize_safety_review.py",
+    "purpose": "Summarize generation and explicitly entered review labels; never infer safety grades.",
+    "bytes": 4564,
+    "sha256": "f175a63e65cabada9c9d13e8b6b47be64174ca584c38c33585b99f0155fb5c75",
+    "definitions": [
+      "build_summary",
+      "main"
+    ]
+  },
+  {
+    "path": "evaluation/verify_live_safety_preview.py",
+    "purpose": "Verify the authenticated research preview with real held-out prompts and Chromium.",
+    "bytes": 5439,
+    "sha256": "bdf75d8da4b6cd29c1065e2e3d1985f5d3202c4282c3dc533c7f3e8ee1d5c06b",
+    "definitions": [
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/archive_generated_export.py",
+    "purpose": "Losslessly archive a failed generated export against a retained immutable export.",
+    "bytes": 8373,
+    "sha256": "336189e03420212bc06f7157b50e7f74f5e5b32dbc25344d24097dcb40e20dde",
+    "definitions": [
+      "digest",
+      "zstd_binary",
+      "write_json",
+      "inventory",
+      "archive",
+      "restore",
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/build_comprehensive_diagrams.py",
+    "purpose": "Render the full project pipeline using Graphviz; no model execution.",
+    "bytes": 10893,
+    "sha256": "e609dba3e1bb4253562ae3e3d06f1b7cf2acd7027dea2305cb25d87fce3ca627",
+    "definitions": [
+      "graph",
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/build_public_release.py",
+    "purpose": "Export curated source and aggregate evidence without private workspace files.",
+    "bytes": 8770,
+    "sha256": "dc0a1772114dcc99d78e775d370076e9ac73cfab2b295ad5a3ea2b696db89966",
+    "definitions": [
+      "digest",
+      "public_template",
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/check_native_live.py",
+    "purpose": "Check private engine auth on all paths and actual gateway SSE generation.",
+    "bytes": 2906,
+    "sha256": "67d77eeb8ac266c948c0f08fd6151c2f62518327a76f03022c401b9d1b3a6050",
+    "definitions": []
+  },
+  {
+    "path": "scripts/check_native_quota.py",
+    "purpose": "Fail before expensive ICE work when the user's Lustre quota lacks headroom.",
+    "bytes": 1620,
+    "sha256": "26c9c3fb2c7e1df92b18bd2b564bda074a3452fdeea8bdf100d119be54468bce",
+    "definitions": [
+      "parse_quota",
+      "assess",
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/check_public_release.py",
+    "purpose": "Check a curated release tree and write an attributable local validation record.",
+    "bytes": 3312,
+    "sha256": "142a0b4b85af9a7bf6d4ff1aa7d42be06bc2a095aaa761958561937bce44b054",
+    "definitions": [
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/collect_safety_v2.py",
+    "purpose": "Collect completed ICE candidates and private evaluation evidence with hashes.",
+    "bytes": 5199,
+    "sha256": "67db3b080256a2547062ba7dbe8214fb7750634cc9b0af8dda937559cd91d5e6",
+    "definitions": [
+      "digest"
+    ]
+  },
+  {
+    "path": "scripts/complete_comprehensive_report.py",
+    "purpose": "Add source/evidence appendices and derive figures from frozen saved artifacts.",
+    "bytes": 25968,
+    "sha256": "a9e2652aabbfcf955e80b124c8505486d80068cf86ba94b02dee9c84708f6ce3",
+    "definitions": [
+      "read",
+      "sha",
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/continue_gptoss_expert_pilots.py",
+    "purpose": "Bounded, fail-closed continuation from GPU qualification to two pilot jobs.",
+    "bytes": 18106,
+    "sha256": "14d8c6d03b8054c95317c0eaf5176696ec710adb430bef31e0a7da9120b7565c",
+    "definitions": [
+      "digest",
+      "atomic",
+      "command",
+      "job_state",
+      "validate_inputs",
+      "validate_qualification",
+      "wall_minutes",
+      "home_quota",
+      "inspect_home_output",
+      "preflight",
+      "reconcile",
+      "clean_submission_env",
+      "tick",
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/demo_cpu.py",
+    "purpose": "Run an explicitly simulated, loopback-only UI/API demo without model weights.",
+    "bytes": 1871,
+    "sha256": "ee07a1ab52c1b2a255b7f705eab5a2bafbd6a2d4408f292af4e9bfb97cb4e3fe",
+    "definitions": [
+      "SimulatedBackend",
+      "build_app"
+    ]
+  },
+  {
+    "path": "scripts/diagnose_gptoss_baseline.py",
+    "purpose": "Compare runtime parity on previously changed validation answers; never alter gates.",
+    "bytes": 3605,
+    "sha256": "384ad5151d7f0134241faa3e5621dcf606fe45b8a1aa31210647ffea73e18cd0",
+    "definitions": [
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/download_base.py",
+    "purpose": "Definitions: ",
+    "bytes": 438,
+    "sha256": "6297ed06f7ace1732fd7117900f0f6534233fa25c2859a3541ed6337d1ccc2f6",
+    "definitions": []
+  },
+  {
+    "path": "scripts/download_gpt_oss_candidate.py",
+    "purpose": "Stage the one approved alternative privately; verify every root weight LFS hash.",
+    "bytes": 2006,
+    "sha256": "059227999cfad4fbb65bf49a6b409fd0a80bfb94c4b6dae299e77d32947eb268",
+    "definitions": [
+      "digest",
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/download_native.py",
+    "purpose": "Download only the approved pinned OLMoE release into a private namespace.",
+    "bytes": 2164,
+    "sha256": "90299d9bf820342c5e24add1647da4feccc5b1b4b45d6fed64be03722445f565",
+    "definitions": [
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/download_safety_data.py",
+    "purpose": "Download pinned public research data; save SHA-256 and attribution, never examples.",
+    "bytes": 1940,
+    "sha256": "2cf8cdd21834e323fcea3c1bd48313fdf2c11e5ed01d6d348c743d69ae311680",
+    "definitions": [
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/evaluate_gptoss_development.py",
+    "purpose": "Bounded, resumable development diagnostics; never release acceptance.",
+    "bytes": 12044,
+    "sha256": "48bb18c8a3b192ce29a4eb91e5a0059e0c84a9ed982a7aa8fa8b1c66675d148f",
+    "definitions": [
+      "digest",
+      "cells",
+      "pin_diagnostic_template",
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/export_comprehensive_pdf.py",
+    "purpose": "Print the standalone report using installed Playwright Chromium, without inference.",
+    "bytes": 2067,
+    "sha256": "ebf6d44fbfd84f38374f7e13aebc277621cfa40ce72ea0fbd9676218b20d8f04",
+    "definitions": [
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/export_gptoss.py",
+    "purpose": "Bounded-memory FP32 attention merge plus exact standard-BF16 reload checks.",
+    "bytes": 9440,
+    "sha256": "6fc4d4250ee867cefb922e91d9bd5f73448ae604b28e4477c8d5821d9ad32efa",
+    "definitions": [
+      "tensor_hash",
+      "tensor_hashes",
+      "probe",
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/export_gptoss_archived.py",
+    "purpose": "Run unchanged qualified BF16 export locally, then persist a verified archive.",
+    "bytes": 6022,
+    "sha256": "28b910487726302ff1479237dc97f2b91ff64a2cec36dc80f1ababb31a57f38c",
+    "definitions": [
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/export_native.py",
+    "purpose": "Verify LoRA merging in FP32, then verify the BF16 export against itself on reload.",
+    "bytes": 9090,
+    "sha256": "2040919cda6ca9e0ee9f5992cb76fef7561ec1e96625b184ef537906981cb708",
+    "definitions": [
+      "evaluate",
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/finish_gptoss_research.py",
+    "purpose": "Bounded calibration and frozen comparisons; failed gates remain failed.",
+    "bytes": 10715,
+    "sha256": "5e341fde4befc3f1c758909865a5d2696d9d6263969cc0200dca55c6ff06f24f",
+    "definitions": [
+      "sha",
+      "atomic",
+      "run",
+      "choose_trial",
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/freeze_external_release.py",
+    "purpose": "Verify and freeze references to every backed-up external checkpoint.",
+    "bytes": 3977,
+    "sha256": "705dca6c2bcdfe273e98476045ea6b2c64bca53ad9e051b878dfd42db6989a97",
+    "definitions": [
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/ice_calibrate_gptoss.sbatch",
+    "purpose": "Site-specific Slurm template: calibrate gptoss",
+    "bytes": 898,
+    "sha256": "cac304f1b0b5896c20e577c95be9791603dfe9374eb9bca6ce6920e4e37a54ae",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_check_router_format.sbatch",
+    "purpose": "Site-specific Slurm template: check router format",
+    "bytes": 916,
+    "sha256": "8c5a0e702224985a3022aebff4f72fd7480fe799433d7b4110626e7802dc5e24",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_compare_experts.sbatch",
+    "purpose": "Site-specific Slurm template: compare experts",
+    "bytes": 610,
+    "sha256": "c77f71352188849bf3f15d8bac173b849604eff306c569fbf854ee8bc27865fa",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_compare_routers.sbatch",
+    "purpose": "Site-specific Slurm template: compare routers",
+    "bytes": 705,
+    "sha256": "ad63f6d6efd3820c23a975c3bf722f3cddb44afe198b188db314d4517d9dcdf2",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_compare_safety.sbatch",
+    "purpose": "Site-specific Slurm template: compare safety",
+    "bytes": 407,
+    "sha256": "8bd9f9ff639952cf938379a813b3f382b235efc22658149b2cc8572be9b331a2",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_compare_safety_v3.sbatch",
+    "purpose": "Site-specific Slurm template: compare safety v3",
+    "bytes": 1174,
+    "sha256": "0608052f6d34b09bb4788d3706396c0b35334a8fba2a4ae803a652f8da62a98b",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_continue_gptoss_expert_pilots.sbatch",
+    "purpose": "Site-specific Slurm template: continue gptoss expert pilots",
+    "bytes": 1087,
+    "sha256": "07bb0ad271c85118efe6d4e0252858f2bd3d119d778e797f4732cf98c8707a12",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_diagnose_gptoss_baseline.sbatch",
+    "purpose": "Site-specific Slurm template: diagnose gptoss baseline",
+    "bytes": 587,
+    "sha256": "ab798a90f50adc8ea99cfde96eb1a8588c274c7c4276025f4c9547a96532f948",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_download_gpt_oss.sbatch",
+    "purpose": "Site-specific Slurm template: download gpt oss",
+    "bytes": 351,
+    "sha256": "f1a9e5a5eb093b829cc4f549b32c93228c101e3b46531583145c439c2c4a8fd0",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_download_native.sbatch",
+    "purpose": "Site-specific Slurm template: download native",
+    "bytes": 366,
+    "sha256": "020c52d8aae786e81b17fc4544134727a6953444a1233be315fe017ac24a3cdd",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_evaluate.sbatch",
+    "purpose": "Site-specific Slurm template: evaluate",
+    "bytes": 435,
+    "sha256": "32cf897528b78b912ce57b820323471071a370f57b8198811f4716c559834c3c",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_evaluate_external_native_suite.sbatch",
+    "purpose": "Site-specific Slurm template: evaluate external native suite",
+    "bytes": 862,
+    "sha256": "872f6af7865f0775f63b1da4be790e3347cf64388c5a3a882e91e21df2ee3310",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_evaluate_safety_router.sbatch",
+    "purpose": "Site-specific Slurm template: evaluate safety router",
+    "bytes": 1061,
+    "sha256": "416c2f83b21e8fd15bde0c1ee1d9bc37af56eff40b5d76509176421f07bb53f0",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_evaluate_safety_router_v3.sbatch",
+    "purpose": "Site-specific Slurm template: evaluate safety router v3",
+    "bytes": 1183,
+    "sha256": "ec6b8b62555864fc993ac6ad6a6c60e46ac221e59e3d749e2629e7bce4010ba0",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_evaluate_safety_supplement.sbatch",
+    "purpose": "Site-specific Slurm template: evaluate safety supplement",
+    "bytes": 1407,
+    "sha256": "07f9d9670409a6d985f60e07cabe7dbc3aff5d6d0f5c715affba3ae50f480e5e",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_evaluate_safety_v2.sbatch",
+    "purpose": "Site-specific Slurm template: evaluate safety v2",
+    "bytes": 1705,
+    "sha256": "526d54af8cd30006098bb84252f8c23c104a1eb982903bafe7974f0675c058b4",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_export_gptoss.sbatch",
+    "purpose": "Site-specific Slurm template: export gptoss",
+    "bytes": 706,
+    "sha256": "017809a2225656cd5eb952d81b690cf31686e626bc403847c8b58fcd4137cbcc",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_export_gptoss_archived.sbatch",
+    "purpose": "Site-specific Slurm template: export gptoss archived",
+    "bytes": 820,
+    "sha256": "ec0d2650c3acfc5894250ddb2dfebac244f4a9092980dd942872340bce5aed13",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_export_native.sbatch",
+    "purpose": "Site-specific Slurm template: export native",
+    "bytes": 582,
+    "sha256": "695636c933914ce6a8f29a4dd782dfff75913c99f923390852fbd8f3ee088eb7",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_finalize_safety_v2.sbatch",
+    "purpose": "Site-specific Slurm template: finalize safety v2",
+    "bytes": 303,
+    "sha256": "843d5e90a7637c0cdd350884317f2de7e700f35d614d093c10d23176050bb9e6",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_finish_gptoss_research.sbatch",
+    "purpose": "Site-specific Slurm template: finish gptoss research",
+    "bytes": 969,
+    "sha256": "52ccb4279d1775cbbc4141b1c7f9d90c0b58569aa4527cb0f32bed99da788930",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_gptoss_development.sbatch",
+    "purpose": "Site-specific Slurm template: gptoss development",
+    "bytes": 4874,
+    "sha256": "776f25be0ae5a7340b2aa3f850407b7c293ea2b486cb72fb187a6f88b79a6b8d",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_gptoss_recovery_batch.sbatch",
+    "purpose": "Site-specific Slurm template: gptoss recovery batch",
+    "bytes": 3031,
+    "sha256": "6b197d93d629af99ec045950807e062153a7251d89c7364d2b0e00204d8024ad",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_internal_smoke.sbatch",
+    "purpose": "Site-specific Slurm template: internal smoke",
+    "bytes": 520,
+    "sha256": "bd9c72a70588f1f77fa4ac775ad28da3c6ba5eee9701dd3018a0fad66642f6ba",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_native_cpu_checks.sbatch",
+    "purpose": "Site-specific Slurm template: native cpu checks",
+    "bytes": 514,
+    "sha256": "dd88fd35974ffddb7351655c33ba393ca95b3817d6a8cea01d758a3dd98c41ae",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_pin_native_serve.sbatch",
+    "purpose": "Site-specific Slurm template: pin native serve",
+    "bytes": 473,
+    "sha256": "c0ef00d970f9b6d641eb0cf81f4bb0c12754a2d549da0244fa9454c45e0d78cf",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_probe_native_cache.sbatch",
+    "purpose": "Site-specific Slurm template: probe native cache",
+    "bytes": 446,
+    "sha256": "07412f4df69e56e1249a2b5494187d514508eed72361c1eb541ae12e47053400",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_profile_native.sbatch",
+    "purpose": "Site-specific Slurm template: profile native",
+    "bytes": 668,
+    "sha256": "0671eb82099962ed8b178fc694d51d27ad368baeaf7dc76cd1fd998d15c98b50",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_qualify_gptoss.sbatch",
+    "purpose": "Site-specific Slurm template: qualify gptoss",
+    "bytes": 509,
+    "sha256": "79074860255c1b3c82085f14d02b6e59acdef9e89731e3e8c131b4a0683d3147",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_qualify_gptoss_ddp.sbatch",
+    "purpose": "Site-specific Slurm template: qualify gptoss ddp",
+    "bytes": 2264,
+    "sha256": "32249330aba392746b80a7b19f9d83bf727fadbe25e9ab791802c5a8a57c291f",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_qualify_gptoss_engine.sbatch",
+    "purpose": "Site-specific Slurm template: qualify gptoss engine",
+    "bytes": 548,
+    "sha256": "edb85d0f56f1294cb0a847d658d8811e51d3c7c771a52bc0a0e08f2774a6b1fd",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_qualify_native.sbatch",
+    "purpose": "Site-specific Slurm template: qualify native",
+    "bytes": 552,
+    "sha256": "da61bb81f782ed65ee593a0df58c83d4ecebd3e65673cc59b4d4a1d66b0aeca8",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_recover_large.sbatch",
+    "purpose": "Site-specific Slurm template: recover large",
+    "bytes": 496,
+    "sha256": "02c1362156a701ffa9fe5a938a6b11f01c271fe91a1f7d12df20f0d718aba99f",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_scratch_environment.sh",
+    "purpose": "Shell environment/startup utility",
+    "bytes": 1047,
+    "sha256": "250061181e03b9c9046ace523ef13d801590155d8567dc4e371eab62ab90b22f",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_serve.sbatch",
+    "purpose": "Site-specific Slurm template: serve",
+    "bytes": 615,
+    "sha256": "1aaf57e86c45b0c31604c697537beb40260aea7ecc301ff0a56e1ad2146577f6",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_serve_gptoss.sbatch",
+    "purpose": "Site-specific Slurm template: serve gptoss",
+    "bytes": 1282,
+    "sha256": "55d08f1917b200a9dbb9897b100e609fd4f77b485b1d067bb3543c8e1087eba7",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_serve_gptoss_archived.sbatch",
+    "purpose": "Site-specific Slurm template: serve gptoss archived",
+    "bytes": 2342,
+    "sha256": "ea0f217f8c2f854af8146ee0b1c762456ec67182a684edf48692590b6b659e37",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_serve_native.sbatch",
+    "purpose": "Site-specific Slurm template: serve native",
+    "bytes": 1777,
+    "sha256": "e728283a624a72b4026c85017d4b11594efd4199e48ba56db7fe8dabfb41837c",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_serve_safety_preview.sbatch",
+    "purpose": "Site-specific Slurm template: serve safety preview",
+    "bytes": 1095,
+    "sha256": "d44f2cd5c1aaae50694ac655abe02bd51fb8cf6dfe4468c29a048d06cb133182",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_setup_gptoss_train.sbatch",
+    "purpose": "Site-specific Slurm template: setup gptoss train",
+    "bytes": 1276,
+    "sha256": "477575e8514add3fbb1f4750de506ce747cc334042f47a9f925e2a4c7eb143c7",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_setup_native_browser.sbatch",
+    "purpose": "Site-specific Slurm template: setup native browser",
+    "bytes": 607,
+    "sha256": "9a654e6330be4ed8d663b6283495a3616ff66c427a779cec2cd607c3eb50c6b5",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_setup_native_serve.sbatch",
+    "purpose": "Site-specific Slurm template: setup native serve",
+    "bytes": 589,
+    "sha256": "c67b7878e92ea91cacad126c7daedc73c5835c7e961126277ca5dc0a7e118cf3",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_smoke.sbatch",
+    "purpose": "Site-specific Slurm template: smoke",
+    "bytes": 441,
+    "sha256": "7386e7b6abc9e99c641f975167fc49fc129124bb72dd2a340b2529fa7a0fe563",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_smoke_safety_api.sbatch",
+    "purpose": "Site-specific Slurm template: smoke safety api",
+    "bytes": 401,
+    "sha256": "f720de1a6b22ed659d23bdfe23b03de5c9bedf02375b6f95bc3df734fa3ab32d",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_smoke_safety_v3.sbatch",
+    "purpose": "Site-specific Slurm template: smoke safety v3",
+    "bytes": 638,
+    "sha256": "91b63d4b113dc15b3bf65324af21253e64bc72440b3911e11d10a051ebf3296c",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_summarize_gptoss_completion.sbatch",
+    "purpose": "Site-specific Slurm template: summarize gptoss completion",
+    "bytes": 556,
+    "sha256": "e897103a8181ffdc8b2131177c53ed091d9a538f21a23db0a624bfa6827238fb",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_train_gptoss.sbatch",
+    "purpose": "Site-specific Slurm template: train gptoss",
+    "bytes": 1212,
+    "sha256": "83274fe293dc5929bed6967f6f12bce29f9794b062911a170ea37f8ce1db8f09",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_train_gptoss_ddp.sbatch",
+    "purpose": "Site-specific Slurm template: train gptoss ddp",
+    "bytes": 1190,
+    "sha256": "3844b1cb887f53c504cf225b210a541247c54336fe4d1706250243d5c1c34460",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_train_gptoss_experts.sbatch",
+    "purpose": "Site-specific Slurm template: train gptoss experts",
+    "bytes": 3591,
+    "sha256": "f8f1ce8104c524b396a44eb4faff40c92b79a3ff9d820f82c9b34c957c1b6f29",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_train_gptoss_single_resume.sbatch",
+    "purpose": "Site-specific Slurm template: train gptoss single resume",
+    "bytes": 1124,
+    "sha256": "275aa02044126e1b1c769a63f489c71ab8ad347fedc56d113f7f87eb92e962b5",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_train_native.sbatch",
+    "purpose": "Site-specific Slurm template: train native",
+    "bytes": 1539,
+    "sha256": "2707d3d30d1df28fd89a2d7ab3782d74ab2ef6d9366fb602bce8dc2ce92a13f4",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_train_safety_expert.sbatch",
+    "purpose": "Site-specific Slurm template: train safety expert",
+    "bytes": 742,
+    "sha256": "8c21c2eacfabbc8b84eab84ba4b7e7afe405860f3a63f97bf295b0222e46c883",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_train_safety_expert_v3.sbatch",
+    "purpose": "Site-specific Slurm template: train safety expert v3",
+    "bytes": 1078,
+    "sha256": "9091884997e630cbbd08e002d9ecf1959e7a7d2ab5c53cbaa2ff8fb90f6831bb",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_train_safety_router.sbatch",
+    "purpose": "Site-specific Slurm template: train safety router",
+    "bytes": 396,
+    "sha256": "1a0f3cafdae643ed195f0c448808f2aa6214cb7e391d6189d4fb78b82f78257e",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_train_safety_router_large.sbatch",
+    "purpose": "Site-specific Slurm template: train safety router large",
+    "bytes": 509,
+    "sha256": "b7ecef81abb627ff14aefbb02dd9358398db62a5c9d75953cffca56570ee8de5",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_train_safety_router_v2.sbatch",
+    "purpose": "Site-specific Slurm template: train safety router v2",
+    "bytes": 952,
+    "sha256": "251ba57c1e4c61f3571294b46d2dd3bd8ef2b5eb07cdc5b7dc9954132efaf414",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_train_safety_router_v3.sbatch",
+    "purpose": "Site-specific Slurm template: train safety router v3",
+    "bytes": 978,
+    "sha256": "af1250a7ac577107586a3ebbb302865c5eeeac867ee020705b635321e33416e5",
+    "definitions": []
+  },
+  {
+    "path": "scripts/ice_verify_native_download.sbatch",
+    "purpose": "Site-specific Slurm template: verify native download",
+    "bytes": 296,
+    "sha256": "0c338d0808510698a22f7522741efd47e2de83b766bcb02dc7d2a6e20463eae6",
+    "definitions": []
+  },
+  {
+    "path": "scripts/integrate_handoff.py",
+    "purpose": "Integrate verified transfer with per-file backups; never touch runtime/secrets/weights.",
+    "bytes": 2625,
+    "sha256": "b65e762ee89deb66f26c2eb817b792a7c44c691690f8bb5319a05ebb2e4eefdf",
+    "definitions": [
+      "digest",
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/native_model_archive.py",
+    "purpose": "Persist exact HF exports compressed; restore verified standard files on local disk.",
+    "bytes": 10190,
+    "sha256": "67d9011a3f49e5657087411f91d88b62e56064d5b264c8fd11195b984c638e70",
+    "definitions": [
+      "digest",
+      "binary",
+      "safe_name",
+      "verify_release",
+      "inventory",
+      "pack",
+      "unpack",
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/native_service.py",
+    "purpose": "Own private engine/gateway children and verify restart plus external rollback.",
+    "bytes": 12740,
+    "sha256": "c71449a1f635316fb2ba0a140f024f9f71c7b65221f83d1dded3ef86ed5b8b78",
+    "definitions": [
+      "launch",
+      "stop",
+      "run",
+      "wait_ready",
+      "start_native",
+      "recovery",
+      "main",
+      "terminate"
+    ]
+  },
+  {
+    "path": "scripts/native_submission_env.py",
+    "purpose": "Prevent an interactive allocation's device/rank mapping leaking into a new job.",
+    "bytes": 677,
+    "sha256": "9d84aca4ba1a064368f1d18a3699dca9786065472b1d4adc46507043f78b0bbc",
+    "definitions": [
+      "clean_submission_env"
+    ]
+  },
+  {
+    "path": "scripts/package_handoff.py",
+    "purpose": "Create a private ICE continuation bundle, excluding credentials and weights.",
+    "bytes": 3961,
+    "sha256": "4526d42a28178bd80acec4ecb74975d2c2c61e517eff31ac22d90e79fc81e962",
+    "definitions": [
+      "selected_paths",
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/package_source.py",
+    "purpose": "Build a reproducible source-only archive; models, environments and secrets stay local.",
+    "bytes": 3535,
+    "sha256": "66a15f8bc1bd58373314452850c1b4495fb80ba00c9ab97142760b2dcb09191d",
+    "definitions": [
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/plot_release_results.py",
+    "purpose": "Plot frozen aggregate proxies; these figures do not imply reviewed accuracy.",
+    "bytes": 1798,
+    "sha256": "14ad7a781ed1f3c594e97c2a2ccedfcab1462b07966cd2ee48dc0be44bf6be82",
+    "definitions": [
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/prepare_artifacts.py",
+    "purpose": "Copy audited router metadata and attach existing adapters without changing originals.",
+    "bytes": 4180,
+    "sha256": "2869056ad665320248900d30a8b927be03a05aa3dd05dd9baa088f65ba0a9472",
+    "definitions": [
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/prepare_safety_preview.py",
+    "purpose": "Create a separate, versioned research bundle without promoting candidates.",
+    "bytes": 2886,
+    "sha256": "5f094c38fd3a4d018c67175a0d3b87201b9d4b1bbeca75768ae511f083523597",
+    "definitions": [
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/probe_native_cache.py",
+    "purpose": "Investigate BF16 cache differences against FP32 and multi-token greedy checks.",
+    "bytes": 2615,
+    "sha256": "8eeba59156d1f919c5751a71ebef56c0041f26fa8757e05dec753adabfb9cbd3",
+    "definitions": []
+  },
+  {
+    "path": "scripts/qualify_gptoss_candidate.py",
+    "purpose": "Allocated-GPU validation, cache and real-train-row resource probe for one alternative.",
+    "bytes": 9408,
+    "sha256": "89e8294d621969017467d602b324293ce5b34d41a8da6f141564a62466a95288",
+    "definitions": [
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/qualify_gptoss_engine.py",
+    "purpose": "Private original-MXFP4 vLLM qualification; BF16 tuned export remains a later gate.",
+    "bytes": 4071,
+    "sha256": "bd6174277ba207bc8d98476f140ae2779ed5df2ca96146d5675e7676686cca0c",
+    "definitions": [
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/qualify_gptoss_expert_export.py",
+    "purpose": "Qualify a real Stage 3 checkpoint as a standard node-local HF model.",
+    "bytes": 19013,
+    "sha256": "92aaeed260481beba640911592284d099a872fe32c39546313178886222d0927",
+    "definitions": [
+      "sha256",
+      "atomic_json",
+      "tensor_hash",
+      "hashes",
+      "distribution_check",
+      "mutable_tensor",
+      "calibrated_state",
+      "assert_standard_keys",
+      "probe",
+      "validation_probes",
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/qualify_native.py",
+    "purpose": "Allocated-GPU native BF16/cache/real-answer qualification, never a toy model.",
+    "bytes": 4765,
+    "sha256": "27d725ecd129b24dad32f6f1471db21a32fab7dd11b2366532ba16e793c3d625",
+    "definitions": [
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/qualify_native_precision.py",
+    "purpose": "Bind raw cache diagnostics to an explicit, precision-aware adaptation gate.",
+    "bytes": 2313,
+    "sha256": "694dce125ec5f5d8b12a8ab41477e7e8104327ef362389fe443fb5d8a811d879",
+    "definitions": []
+  },
+  {
+    "path": "scripts/reconcile_native_deployment.py",
+    "purpose": "Correct an expired deployment record from Slurm evidence; never stop processes.",
+    "bytes": 1989,
+    "sha256": "77756e0b64c2bd58c2be02876e5ed363c79a70d999bd6bbf3397ee1195c3be22",
+    "definitions": [
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/record_training_launch.py",
+    "purpose": "Capture exact executed recipes/source/data hashes before GPU optimization.",
+    "bytes": 1921,
+    "sha256": "995cacdcc2124b8ac62fbbfddc5665c5ec44cb3e1471e76ce43a41b02b39601e",
+    "definitions": []
+  },
+  {
+    "path": "scripts/recover_large_router.py",
+    "purpose": "Strictly recover per-tensor chunks into a NEW standard checkpoint directory.",
+    "bytes": 1187,
+    "sha256": "8b6483acb0eaca82c27b0b6cf9e2239320f39b6283c15480d85ec2a6b169afb3",
+    "definitions": []
+  },
+  {
+    "path": "scripts/render_comprehensive_report.py",
+    "purpose": "Render the full Markdown report as standalone HTML (Markdown==3.8.2).",
+    "bytes": 3991,
+    "sha256": "f03189a98108f011ce21299078330e672f67162ee244aee3553b6e1e6151c080",
+    "definitions": [
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/render_research_report.py",
+    "purpose": "Build a standalone HTML report from public Markdown and aggregate figures.",
+    "bytes": 3225,
+    "sha256": "e2d29551a422b7f9649fac054a9febb05f00592dd556b1ed5420988783c3a23f",
+    "definitions": [
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/restart_safety_preview.py",
+    "purpose": "Restart the private ICE research demo through an authenticated SSH master.",
+    "bytes": 7308,
+    "sha256": "6356360265b752afc58d97dc66b3c1430cbe723eb2878a69c056e292d49baeae",
+    "definitions": [
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/retire_archived_failed_export.py",
+    "purpose": "One-time retirement of only the four restored, failed OLMoE generated shards.",
+    "bytes": 3973,
+    "sha256": "f8ba9f7cfeedfcad46b0dc767cfa6a0ccc752ee6b2c38bb3e58accf83a57ce12",
+    "definitions": [
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/start.sh",
+    "purpose": "Shell environment/startup utility",
+    "bytes": 202,
+    "sha256": "9d375674b95cca5c40aad9cd53914e7643c537b6f386c53772717b064b0fcf13",
+    "definitions": []
+  },
+  {
+    "path": "scripts/start_native_gateway.py",
+    "purpose": "Start the authenticated native gateway; never print credentials.",
+    "bytes": 570,
+    "sha256": "c7e524ce49b4caf9c43c389da928122f6d6a2090abeb1974adcfb0d5ffdd59ba",
+    "definitions": []
+  },
+  {
+    "path": "scripts/summarize_gptoss_completion.py",
+    "purpose": "Verify frozen comparisons and generate an honest research completion report.",
+    "bytes": 8657,
+    "sha256": "7ae8d01c1851b35ebc3d42f03e6832a648ebfa00bb533ba35de9a2dda9c68380",
+    "definitions": [
+      "digest",
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/sync_native_source.py",
+    "purpose": "Backed-up source rollout plus additive native namespaces; preserve external assets.",
+    "bytes": 3699,
+    "sha256": "8ead7d17ccb8b6b9b2f2124ca14f3059e6ad293efaf829b561aebd4eb6dc1d8c",
+    "definitions": [
+      "digest"
+    ]
+  },
+  {
+    "path": "scripts/verify_bundle.py",
+    "purpose": "Definitions: ",
+    "bytes": 718,
+    "sha256": "171cdb9c6743979635e8fdea17acdfaa794fefc21d8d053adb7c0da86dd8d1b3",
+    "definitions": []
+  },
+  {
+    "path": "scripts/verify_external_ice.py",
+    "purpose": "Bind the frozen external release to actual ICE paths without moving weights.",
+    "bytes": 1693,
+    "sha256": "a9cf9c3d1b9ed4eb714dd4ee5431dadef1518b5b0a25523f1f60639d5c6494d4",
+    "definitions": []
+  },
+  {
+    "path": "scripts/verify_handoff.py",
+    "purpose": "Verify an extracted private continuation bundle using only Python stdlib.",
+    "bytes": 1375,
+    "sha256": "6b511b2b3bac4a12883cd7d18e2d66f5670c5b35c50c5472e9b782fca40fd69a",
+    "definitions": [
+      "verify"
+    ]
+  },
+  {
+    "path": "scripts/verify_native_download.py",
+    "purpose": "Verify pinned upstream LFS SHA-256, sizes, and safetensors headers.",
+    "bytes": 1304,
+    "sha256": "a7d611e9b7dc5c45949a74f9644c26faed0db8975651885bac17241aa20e3799",
+    "definitions": []
+  },
+  {
+    "path": "configs/internal/gptoss-experts-v2-native-eval.json",
+    "purpose": "Configuration or deployment/template asset",
+    "bytes": 1306,
+    "sha256": "8d035b61e97716c4740ff5b64205f1072098857178ebd2392571aebb59a1370a",
+    "definitions": []
+  },
+  {
+    "path": "configs/internal/gptoss-experts-v2.json",
+    "purpose": "Configuration or deployment/template asset",
+    "bytes": 1117,
+    "sha256": "31e62a5929e5152c3ea354fa86159252c30ecc8392c410a2684eb12f7e0f75a0",
+    "definitions": []
+  },
+  {
+    "path": "configs/internal/gptoss-training-constraints.txt",
+    "purpose": "Configuration or deployment/template asset",
+    "bytes": 135,
+    "sha256": "164fd55631229ded9584b883ff794717582aee5e884e304d896c6fda04be2d25",
+    "definitions": []
+  },
+  {
+    "path": "configs/internal/gptoss-v1-lr2e-6.json",
+    "purpose": "Configuration or deployment/template asset",
+    "bytes": 735,
+    "sha256": "ff6f835c9a6dafb093ee1c022be8b5eb745d883ac32673a4dd45edb508afc81e",
+    "definitions": []
+  },
+  {
+    "path": "configs/internal/gptoss-v1.json",
+    "purpose": "Configuration or deployment/template asset",
+    "bytes": 717,
+    "sha256": "76d9878febea81d69ef48aeaf46c4e0ea56aee5f6fd27adacf2495cfe4216fbd",
+    "definitions": []
+  },
+  {
+    "path": "configs/internal/native-v1.json",
+    "purpose": "Configuration or deployment/template asset",
+    "bytes": 614,
+    "sha256": "e143acb6185d44c87c7a8a565786eed93ea7f400df09ef7387664e580c1afb0a",
+    "definitions": []
+  },
+  {
+    "path": "configs/internal/native_safety_supplement.json",
+    "purpose": "Configuration or deployment/template asset",
+    "bytes": 8463,
+    "sha256": "adee20f274598ddbe205652704a7df1ff316cb2182c14ed29870abc518ff5634",
+    "definitions": []
+  },
+  {
+    "path": "configs/model_manifest.json",
+    "purpose": "Configuration or deployment/template asset",
+    "bytes": 4014,
+    "sha256": "aefb54ee9e06d6e255a15e1b14e3b248ee044afcc23e809baa39532679943e0d",
+    "definitions": []
+  },
+  {
+    "path": "configs/model_manifest_safety_preview.json",
+    "purpose": "Configuration or deployment/template asset",
+    "bytes": 1512,
+    "sha256": "97333d39f7af40f57f8cc2286da937399f85d15d689193cd7f9926e64a6e3734",
+    "definitions": []
+  },
+  {
+    "path": "configs/native_sources.json",
+    "purpose": "Configuration or deployment/template asset",
+    "bytes": 1194,
+    "sha256": "763dd022d17b6569b42bab012a792560fa97f717862f6d0427a4fac5ec617dae",
+    "definitions": []
+  },
+  {
+    "path": "configs/runtime.example.json",
+    "purpose": "Configuration or deployment/template asset",
+    "bytes": 388,
+    "sha256": "371f03e782423628798a65fcb6c9f9e701f5d965cdf13b5cd1b6887e2a89f890",
+    "definitions": []
+  },
+  {
+    "path": "configs/safety_sources.json",
+    "purpose": "Configuration or deployment/template asset",
+    "bytes": 941,
+    "sha256": "17a1c66abe7f04c32ad2058efea5348c2004989087e72c9a8a0f68ffc7a63856",
+    "definitions": []
+  },
+  {
+    "path": "configs/safety_sources_v2.json",
+    "purpose": "Configuration or deployment/template asset",
+    "bytes": 789,
+    "sha256": "5660130ef2b4d3aa183184f8f10d6b69bd256ed8fd47cddc9056acfa933505ed",
+    "definitions": []
+  },
+  {
+    "path": "tests/test_api.py",
+    "purpose": "Tests: ServiceDouble, settings, test_restricted_chat_and_compatibility, test_full_queue_is_retryable",
+    "bytes": 2618,
+    "sha256": "f6b3b7acf3d34de652e8a2cf8b43a24013cfa93f6337e345b28ad1d35ed0c343",
+    "definitions": [
+      "ServiceDouble",
+      "settings",
+      "test_restricted_chat_and_compatibility",
+      "test_full_queue_is_retryable",
+      "test_loader_failure_prevents_readiness"
+    ]
+  },
+  {
+    "path": "tests/test_backend.py",
+    "purpose": "Tests: test_adapter_selection_and_generation_are_serialized, test_queue_timeout_releases_capacity, test_checkpoint_label_order_is_explicit",
+    "bytes": 2138,
+    "sha256": "24765904e42506f15b7bfe85c882d42be34f072789dda372d9e6c03fe72d9895",
+    "definitions": [
+      "test_adapter_selection_and_generation_are_serialized",
+      "test_queue_timeout_releases_capacity",
+      "test_checkpoint_label_order_is_explicit"
+    ]
+  },
+  {
+    "path": "tests/test_carry_native_reviews.py",
+    "purpose": "Tests: records, test_exact_reuse_preserves_original_attribution_and_marks_not_independent, test_any_changed_assessment_input_prevents_reuse, test_stale_source_review_rejected",
+    "bytes": 2201,
+    "sha256": "9ed1e71e992f2de2f4660f8528c967a0ee7d61e1ea60eb353cfef306775fbc9d",
+    "definitions": [
+      "records",
+      "test_exact_reuse_preserves_original_attribution_and_marks_not_independent",
+      "test_any_changed_assessment_input_prevents_reuse",
+      "test_stale_source_review_rejected",
+      "test_jsonl_unicode_paragraph_separator_is_not_a_record_boundary"
+    ]
+  },
+  {
+    "path": "tests/test_cpu_demo.py",
+    "purpose": "Tests: test_cpu_demo_is_authenticated_and_explicitly_simulated",
+    "bytes": 993,
+    "sha256": "d0fd40324cabaab0f6e9eadf352385c8b50fc7ef95d23dd2edb5520c91e4a574",
+    "definitions": [
+      "test_cpu_demo_is_authenticated_and_explicitly_simulated"
+    ]
+  },
+  {
+    "path": "tests/test_data.py",
+    "purpose": "Tests: test_no_split_overlap_and_conflicts_quarantined",
+    "bytes": 1103,
+    "sha256": "83076a3e831d6b65a9878c2ba9c2c680a4c17de1c5733175c1675581ae5383bd",
+    "definitions": [
+      "test_no_split_overlap_and_conflicts_quarantined"
+    ]
+  },
+  {
+    "path": "tests/test_expert_confirmatory_suite.py",
+    "purpose": "Tests: test_selection_excludes_normalized_prior_and_cross_group_duplicates, test_selection_is_order_independent",
+    "bytes": 1013,
+    "sha256": "4e9804088e79e2300774999e2cb10222509876d62759a049b7f8cf2e2015f5cd",
+    "definitions": [
+      "test_selection_excludes_normalized_prior_and_cross_group_duplicates",
+      "test_selection_is_order_independent"
+    ]
+  },
+  {
+    "path": "tests/test_expert_pilot_controller.py",
+    "purpose": "Controller proves readiness gates and crash-safe bounded scheduler behavior.",
+    "bytes": 11680,
+    "sha256": "db0ff024e5aa416aa296b248d89527a92caae6357b8f1a21432881faa50d1482",
+    "definitions": [
+      "setup",
+      "Scheduler",
+      "test_only_completed_matching_proven_qualification_can_submit",
+      "test_two_variants_submit_once_with_clean_env_and_recheck_before_each",
+      "test_source_change_rejected_before_any_sbatch",
+      "test_other_research_jobs_count_but_dashboard_does_not",
+      "test_quota_and_current_qos_gpu_minute_limits_gate_submission",
+      "test_ambiguous_submission_never_retried_and_can_reconcile",
+      "test_wrong_job_metadata_and_failed_resume_cannot_authorize",
+      "test_runtime_estimate_rejects_uncheckpointable_allocation",
+      "test_live_controller_lock_prevents_second_controller",
+      "test_max_runtime_remains_within_live_partition_wall_limit",
+      "test_home_quota_bound_to_mount_rejects_stale_and_insufficient_rows",
+      "test_controlled_home_outputs_record_both_quotas_and_block_low_home",
+      "test_home_path_cannot_redirect_to_other_storage",
+      "test_duplicate_identical_home_mount_rows_allowed_but_conflict_rejected"
+    ]
+  },
+  {
+    "path": "tests/test_generated_export_archive.py",
+    "purpose": "Tests: GeneratedArchiveTest",
+    "bytes": 3256,
+    "sha256": "06c37852f0579e5e521b6da10addcae03f834fc739b5691fe14f8cf54f2f28d0",
+    "definitions": [
+      "GeneratedArchiveTest"
+    ]
+  },
+  {
+    "path": "tests/test_gptoss_calibration.py",
+    "purpose": "A calibrated adapter retains a real learned update and correct projection algebra.",
+    "bytes": 1720,
+    "sha256": "4d61654bd89779fafe3497f85cdcc5c31b8cd15a2f0b76235849bda7d619cb33",
+    "definitions": [
+      "test_shrinkage_preserves_attention_update_algebra_and_frozen_weights"
+    ]
+  },
+  {
+    "path": "tests/test_gptoss_completion_report.py",
+    "purpose": "Tests: test_completed_collection_requires_matched_inputs_and_selected_checkpoint",
+    "bytes": 2417,
+    "sha256": "42abebabcde18ea599c1fe248086ad9873a9db0f613deea64a7b9bc257c0fb62",
+    "definitions": [
+      "test_completed_collection_requires_matched_inputs_and_selected_checkpoint"
+    ]
+  },
+  {
+    "path": "tests/test_gptoss_ddp_qualification.py",
+    "purpose": "Check actual DDP averaging for unequal response lengths before GPU qualification.",
+    "bytes": 2551,
+    "sha256": "9b28344eb0b252357b71bd704c45e4548c5aeb7e81bddaebff9b4a794f1b2b3a",
+    "definitions": [
+      "test_effective_batch_partition_has_no_repeats_or_dropped_real_examples",
+      "cpu_worker",
+      "test_two_actual_cpu_ranks_match_single_process_global_token_mean"
+    ]
+  },
+  {
+    "path": "tests/test_gptoss_development.py",
+    "purpose": "Ensure matched development controls and frozen-date export reuse.",
+    "bytes": 1356,
+    "sha256": "0542e2e12666d449a31476d1e31eab76c59a9e23c8bf19e1a55640f62b4dc62a",
+    "definitions": [
+      "test_factorial_controls_change_only_policy_and_budget",
+      "test_exported_fixed_date_is_accepted_and_wrong_date_rejected"
+    ]
+  },
+  {
+    "path": "tests/test_gptoss_distributed_resume.py",
+    "purpose": "Real CPU Trainer transition: unchanged global batch, complete rank RNG, safe resume.",
+    "bytes": 6193,
+    "sha256": "e272c4191bb4d179c0438de78c1bc7c6fea8614fc8dc20751bd8e824a943bbd6",
+    "definitions": [
+      "arguments",
+      "model_and_data",
+      "worker",
+      "test_one_to_two_ranks_preserves_sample_cursor_and_full_checkpoint_state"
+    ]
+  },
+  {
+    "path": "tests/test_gptoss_expert_adapter.py",
+    "purpose": "Real miniature GPT-OSS architecture: native parity, training and standard export.",
+    "bytes": 7637,
+    "sha256": "3a1a2a83e891bf93414b43a20a648e4a0878234908645940dfed37edffee21f1",
+    "definitions": [
+      "tiny_model",
+      "inputs",
+      "test_zero_delta_parity_and_freeze_native_base",
+      "test_gate_warmup_gradients_checkpoint_and_merge_reload",
+      "test_selected_layers_strict_restore_and_invalid_configuration",
+      "test_interleaving_clamping_masked_expert_and_input_gradients",
+      "test_bf16_base_fp32_adapters_and_native_gate_optimizer",
+      "test_batched_eval_preserves_native_bf16_gemms_and_reduction"
+    ]
+  },
+  {
+    "path": "tests/test_gptoss_expert_export.py",
+    "purpose": "Export gates detect numeric divergence and verify native cached decoding.",
+    "bytes": 3199,
+    "sha256": "f9dd249fd6029551d5fc4755c67d6ba2cf0e4e5fc46a26436c345b9dc34d426f",
+    "definitions": [
+      "test_distribution_and_standard_checkpoint_gates",
+      "test_calibration_is_explicit_nonmutating_and_scales_gates_from_parent",
+      "test_probe_cache_and_generation_repeat_exactly_on_real_architecture"
+    ]
+  },
+  {
+    "path": "tests/test_gptoss_expert_training.py",
+    "purpose": "Checkpoint correctness and deterministic sample cursor, independent of GPUs.",
+    "bytes": 4789,
+    "sha256": "b1a9022f30ba90fb1d373fbd4ac92e1ceb1ebaaac6f3088766dd209df47aba6a",
+    "definitions": [
+      "test_cursor_wraps_without_skips_across_resume",
+      "test_checkpoint_replays_optimizer_scheduler_rng_and_rejects_identity",
+      "test_checkpoint_rejects_insufficient_authoritative_quota",
+      "test_checkpoint_checks_its_home_mount_even_if_project_quota_is_full",
+      "test_checkpoint_rejects_full_home_and_foreign_mount"
+    ]
+  },
+  {
+    "path": "tests/test_gptoss_finish.py",
+    "purpose": "Development selection must not turn failed exports into accepted candidates.",
+    "bytes": 992,
+    "sha256": "968199198991e18af48caa6db153f6ba59dd0f0ee9d225016f4efd1716308029",
+    "definitions": [
+      "test_select_only_qualified_strictly_improved_trials_and_predeclared_ties"
+    ]
+  },
+  {
+    "path": "tests/test_gptoss_launcher_signal.py",
+    "purpose": "Tests: test_checkpoint_signal_reaches_only_launchers_direct_worker",
+    "bytes": 1118,
+    "sha256": "6f83b4ef09052b5b4eb4c667ce3033df4b2d4eec63980e693d202948913b10a3",
+    "definitions": [
+      "test_checkpoint_signal_reaches_only_launchers_direct_worker"
+    ]
+  },
+  {
+    "path": "tests/test_gptoss_phase_archival.py",
+    "purpose": "Tests: test_interim_answers_status_and_adapter_are_preserved_before_resume",
+    "bytes": 1068,
+    "sha256": "e2e24bd569c8a2a5aa0f3275fc48b0efd98d3eeba099b1766cf605b433233642",
+    "definitions": [
+      "test_interim_answers_status_and_adapter_are_preserved_before_resume"
+    ]
+  },
+  {
+    "path": "tests/test_gptoss_selection_date.py",
+    "purpose": "Tests: test_date_is_explicit_in_memory_and_original_template_value_unchanged, test_invalid_dates_are_rejected",
+    "bytes": 720,
+    "sha256": "dfb09b42672a448f52843db0cf6f5b292dbd98877ba7cfed680eef184cccaeb9",
+    "definitions": [
+      "test_date_is_explicit_in_memory_and_original_template_value_unchanged",
+      "test_invalid_dates_are_rejected"
+    ]
+  },
+  {
+    "path": "tests/test_gptoss_training.py",
+    "purpose": "Protect final-only supervision/output and validation quality selection.",
+    "bytes": 6529,
+    "sha256": "c6c0f7084f97542aee2aa42da5ed35c7d0de5de6ca62421cffa568b69a989838",
+    "definitions": [
+      "test_quality_selection_rejects_single_domain_regression",
+      "test_private_channels_are_rejected",
+      "test_validation_answer_checks_are_explicit_proxies",
+      "test_real_pinned_template_supervises_final_targets_only",
+      "test_stream_never_exposes_channel_headers_across_fragment_boundaries",
+      "test_local_fp32_merge_preserves_frozen_native_experts_and_buffers",
+      "test_gateway_blocks_split_private_channel_and_releases_admission"
+    ]
+  },
+  {
+    "path": "tests/test_gptoss_validation_review.py",
+    "purpose": "Reject comparisons with changed questions/answers instead of certifying proxies.",
+    "bytes": 4319,
+    "sha256": "845212ee56a04cbb41a54ea2753f553edb2a5a819527d8e162456acabcc1c517",
+    "definitions": [
+      "fixture",
+      "test_packet_preserves_proxy_and_leaves_every_review_unassessed",
+      "test_corrupt_input_rejected_before_writing_output",
+      "test_partial_uncertain_review_does_not_impute_correctness_and_stale_review_rejected"
+    ]
+  },
+  {
+    "path": "tests/test_internal_moe.py",
+    "purpose": "Tests: test_upcycling_preserves_dense_output_and_dispatch, test_gate_and_selected_experts_receive_gradients, test_decoder_cannot_read_future_tokens, test_padding_excluded_from_router_losses",
+    "bytes": 2807,
+    "sha256": "52751099163400dc0ef6c1b2c1f13c89821bcfd61b7aca1933436561daa9f881",
+    "definitions": [
+      "test_upcycling_preserves_dense_output_and_dispatch",
+      "test_gate_and_selected_experts_receive_gradients",
+      "test_decoder_cannot_read_future_tokens",
+      "test_padding_excluded_from_router_losses",
+      "test_checkpoint_round_trip",
+      "test_no_training_targets_rejected"
+    ]
+  },
+  {
+    "path": "tests/test_native_accuracy.py",
+    "purpose": "Incomplete or uncertain assessments must not become exact passing accuracy.",
+    "bytes": 2314,
+    "sha256": "479552496bd65540eb7101f5ca5fa800b54627d5c261ed2d39932ce917ce514f",
+    "definitions": [
+      "test_accuracy_keeps_full_denominator_and_unknowns",
+      "test_mixed_release_answers_cannot_form_one_candidate_score"
+    ]
+  },
+  {
+    "path": "tests/test_native_data.py",
+    "purpose": "Tests: row, test_protected_holdout_excludes_connected_training_context, test_publisher_conflicts_quarantine_whole_conversation, test_targets_conflict_and_duplicates_are_not_silently_selected",
+    "bytes": 3367,
+    "sha256": "a131fa7ca948c86f3ef6eb1005f281fa713b1129761927439f38941c83e0d344",
+    "definitions": [
+      "row",
+      "test_protected_holdout_excludes_connected_training_context",
+      "test_publisher_conflicts_quarantine_whole_conversation",
+      "test_targets_conflict_and_duplicates_are_not_silently_selected",
+      "test_shared_context_and_instruction_components_are_split_together",
+      "test_training_caps_do_not_change_holdouts_or_drop_support_first",
+      "test_unicode_normalization_and_full_context_are_protected",
+      "test_empty_targets_are_quarantined_instead_of_becoming_completions"
+    ]
+  },
+  {
+    "path": "tests/test_native_export.py",
+    "purpose": "Regression for the real OLMoE buffer mismatch invisible to weight hashes.",
+    "bytes": 1549,
+    "sha256": "803b07714f6d4b5c9f30fb2e48eca104d935d4afbebc2254828f6b68bf801c7c",
+    "definitions": [
+      "test_export_preserves_reconstructed_rotary_frequencies_and_outputs"
+    ]
+  },
+  {
+    "path": "tests/test_native_load_format.py",
+    "purpose": "Operational input counts must match the actual gateway template and reservation.",
+    "bytes": 1069,
+    "sha256": "9e18236ac9439d076710bc0a73fe6e58cad39017d2b055f002727aa6a8f342b4",
+    "definitions": [
+      "test_gptoss_load_count_equals_actual_gateway_count"
+    ]
+  },
+  {
+    "path": "tests/test_native_model_archive.py",
+    "purpose": "Tests: NativeArchiveTest",
+    "bytes": 7395,
+    "sha256": "52a0fbc59980c28bd564a3ece0fef78ffc5b69b975938623d2882881a1b50641",
+    "definitions": [
+      "NativeArchiveTest"
+    ]
+  },
+  {
+    "path": "tests/test_native_operator.py",
+    "purpose": "Exercise child startup ordering, readiness failures and clean signal exit.",
+    "bytes": 3312,
+    "sha256": "472bb94af86051a42ffb2a42fc17a8eea54939342ac801d3d3fbb3791a62c6f4",
+    "definitions": [
+      "operator",
+      "test_parallel_start_keeps_authenticated_engine_then_gateway_gate",
+      "test_failed_engine_does_not_write_ready_deployment",
+      "test_intentional_allocation_signal_is_clean_exit_with_explicit_reason"
+    ]
+  },
+  {
+    "path": "tests/test_native_quota.py",
+    "purpose": "Tests: test_overquota_marker_is_not_mistaken_for_available_filesystem_space, test_both_storage_and_file_limits_are_required, test_failed_checkpoint_is_quarantined_without_touching_previous_full_save",
+    "bytes": 2087,
+    "sha256": "6bf8025b0370b166aa222ee1b2a49889dc8c32be07ebc46169d16c3faef08df6",
+    "definitions": [
+      "test_overquota_marker_is_not_mistaken_for_available_filesystem_space",
+      "test_both_storage_and_file_limits_are_required",
+      "test_failed_checkpoint_is_quarantined_without_touching_previous_full_save"
+    ]
+  },
+  {
+    "path": "tests/test_native_service.py",
+    "purpose": "Tests: Tokenizer, native_settings, transport, test_native_auth_contract_history_and_unavailable_profiles",
+    "bytes": 6247,
+    "sha256": "36b3d189463d3e68fa32cc06b7c0463984741107ab77c8f15a6cbf812ba1cdc6",
+    "definitions": [
+      "Tokenizer",
+      "native_settings",
+      "transport",
+      "test_native_auth_contract_history_and_unavailable_profiles",
+      "test_context_reserves_output_and_trims_complete_turns",
+      "test_native_requires_research_flag_and_private_distinct_engine_key",
+      "test_all_engine_paths_require_server_credential",
+      "test_admission_timeout_cancel_and_release",
+      "test_buffered_support_does_not_emit_partial_text"
+    ]
+  },
+  {
+    "path": "tests/test_native_submission_env.py",
+    "purpose": "Tests: test_new_job_receives_its_own_gpu_rank_and_slurm_mapping",
+    "bytes": 727,
+    "sha256": "ee7e721547e465d421f8802bbc797d2661f0b76ef97aabeb30a49f99ea2a290c",
+    "definitions": [
+      "test_new_job_receives_its_own_gpu_rank_and_slurm_mapping"
+    ]
+  },
+  {
+    "path": "tests/test_operational_checkpoint.py",
+    "purpose": "Wall-clock saves must preserve the Trainer's existing evaluation decisions.",
+    "bytes": 3258,
+    "sha256": "1cc8b6547779ab6644072878529318fec4a7e7fa9170d016e46bbdf87ddbeb29",
+    "definitions": [
+      "test_periodic_save_and_preemption_preserve_evaluation_decisions",
+      "test_real_trainer_saves_optimizer_rng_and_resumes_without_changing_best"
+    ]
+  },
+  {
+    "path": "tests/test_router_checkpointing.py",
+    "purpose": "Real DeBERTa backward regression, run in the recovered training environment.",
+    "bytes": 1448,
+    "sha256": "491570c0a57e63fa04d7323bd328f89702b4f6daeb6ad0fd3f32b3f434836117",
+    "definitions": [
+      "test_deberta_shared_relative_embeddings_support_grouped_checkpoint_backward"
+    ]
+  },
+  {
+    "path": "tests/test_safety.py",
+    "purpose": "Tests: test_safety_has_priority_over_requested_math_and_base, test_benign_manual_override_and_legacy_router_compatibility, test_four_expert_router_cannot_start_without_safety_weights, test_api_reports_only_installed_experts",
+    "bytes": 7574,
+    "sha256": "0064bb388e629fea4bd442e4be10dea219087ed0a74f579ee9b9f738c72312b6",
+    "definitions": [
+      "test_safety_has_priority_over_requested_math_and_base",
+      "test_benign_manual_override_and_legacy_router_compatibility",
+      "test_four_expert_router_cannot_start_without_safety_weights",
+      "test_api_reports_only_installed_experts",
+      "test_failed_safety_candidate_requires_isolated_evaluation",
+      "test_threshold_calibration_counts_benign_false_positives",
+      "test_hard_benign_false_positives_are_reported_separately",
+      "test_positive_only_benchmark_cannot_measure_false_positives_or_calibrate",
+      "test_safer_but_unsafe_response_is_never_used_as_target",
+      "test_actual_prepared_safety_corpus_has_joint_disjoint_splits",
+      "test_jsonl_preserves_unicode_line_separators"
+    ]
+  },
+  {
+    "path": "tests/test_safety_improvements.py",
+    "purpose": "Tests: test_calibrated_threshold_is_not_bypassed_by_top_safety_class, test_late_safety_evidence_reduces_group_loss_and_receives_gradient, test_benign_long_prompt_penalizes_safety_in_any_window, test_unrepresented_group_cannot_silently_train",
+    "bytes": 6101,
+    "sha256": "ec6b8010f980989e4998c82ccbad156f2e213d45515c08615edf4b945ce148db",
+    "definitions": [
+      "test_calibrated_threshold_is_not_bypassed_by_top_safety_class",
+      "test_late_safety_evidence_reduces_group_loss_and_receives_gradient",
+      "test_benign_long_prompt_penalizes_safety_in_any_window",
+      "test_unrepresented_group_cannot_silently_train",
+      "test_easy_domains_do_not_hide_benign_false_positive_gate",
+      "test_source_recall_gate_prevents_pooled_recall_hiding_support_failure",
+      "conversation",
+      "test_support_targets_require_positive_feedback_and_exclude_false_self_disclosure",
+      "test_expanded_real_corpus_preserves_every_old_row_and_conversation_groups",
+      "test_blank_review_forms_cannot_create_training_labels",
+      "test_reviews_require_distinct_reviewers_and_cannot_touch_holdouts"
+    ]
+  },
+  {
+    "path": "tests/test_safety_review.py",
+    "purpose": "Tests: test_unreviewed_responses_do_not_receive_invented_zero_harm_scores, test_benign_source_unsafe_labels_do_not_dilute_reviewed_harmful_compliance",
+    "bytes": 1471,
+    "sha256": "10b13d8e6d2054f2f6a043942358e8325040f079648347abe8ce2ee0ee2c50ac",
+    "definitions": [
+      "test_unreviewed_responses_do_not_receive_invented_zero_harm_scores",
+      "test_benign_source_unsafe_labels_do_not_dilute_reviewed_harmful_compliance"
+    ]
+  },
+  {
+    "path": "tests/test_source_release.py",
+    "purpose": "Tests: packager, test_source_archive_excludes_private_and_generated_files, test_source_archive_rejects_embedded_credentials",
+    "bytes": 2084,
+    "sha256": "3c5397ad8c28f6d730b87456e9d51e0c465b615be2446ff057d6b2caf5e03c4a",
+    "definitions": [
+      "packager",
+      "test_source_archive_excludes_private_and_generated_files",
+      "test_source_archive_rejects_embedded_credentials"
+    ]
+  },
+  {
+    "path": "tests/test_validation_answers.py",
+    "purpose": "Tests: test_explicit_answer_is_not_replaced_by_later_context_numbers, test_does_not_accept_reference_mentions_or_earlier_bold_intermediate_values",
+    "bytes": 1164,
+    "sha256": "828aca6614ccacfce2ee102ec29bdaaba32b261057f709dcf37151a5626c60ce",
+    "definitions": [
+      "test_explicit_answer_is_not_replaced_by_later_context_numbers",
+      "test_does_not_accept_reference_mentions_or_earlier_bold_intermediate_values"
+    ]
+  },
+  {
+    "path": "deploy/Dockerfile",
+    "purpose": "Configuration or deployment/template asset",
+    "bytes": 609,
+    "sha256": "94350de7617d14ce6fd3b2542f8495707bc479866909f8d5249ae3dab990f9b0",
+    "definitions": []
+  },
+  {
+    "path": "deploy/aws/template.yaml",
+    "purpose": "Configuration or deployment/template asset",
+    "bytes": 2339,
+    "sha256": "76f78a644b0eb1f7ec0be30e3348e6b65a0c3bdf2ce58c792286627bf57cc408",
+    "definitions": []
+  },
+  {
+    "path": "deploy/compose.yaml",
+    "purpose": "Configuration or deployment/template asset",
+    "bytes": 553,
+    "sha256": "a12893a9b2d43148148686d12f7039a9c771d85baa9f84e7f2dab80cb90ee544",
+    "definitions": []
+  }
+]

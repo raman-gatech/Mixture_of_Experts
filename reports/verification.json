@@ -32,9 +32,12 @@
   },
   "gpu_demo": {
     "job_id": "6479705",
-    "state": "pending",
+    "state": "COMPLETED_stopped",
     "qos": "coc-ice",
-    "live_verified": false
+    "live_verified": false,
+    "api_browser_operations_passed": true,
+    "cold_start_passed": false,
+    "cold_start_seconds": 646.4893112049904
   },
   "fresh_local_clone": {
     "source_commit": "db706b72d3dac6c1835f4b158558d8148ae9c848",
@@ -44,5 +47,22 @@
     "remote_clone": false,
     "junit_sha256": "dde0a0228c21ecd94efeaac425e0b8347f972622971449284212d7008b1bf2b4"
   },
-  "cpu_test_scope_note": "Full model-logic suite ran on first curated export. Final packaging changes were verified by the fresh-clone targeted suite; new report utilities compiled separately."
+  "cpu_test_scope_note": "Full model-logic suite ran on first curated export. Final packaging changes were verified by the fresh-clone targeted suite; new report utilities compiled separately.",
+  "comprehensive_report": {
+    "pdf_pages": 69,
+    "word_count": 15738,
+    "diagram_count": 12,
+    "evidence_records": 40,
+    "report_validation_passed": true
+  },
+  "updated_source_packaging_checks": {
+    "passed": 2,
+    "failures": 0,
+    "scope": "Final source archive format including report PDF, figures and DOT sources"
+  },
+  "expanded_source_tree_scan": {
+    "passed": true,
+    "files": 313,
+    "local_markdown_links_passed": true
+  }
 }

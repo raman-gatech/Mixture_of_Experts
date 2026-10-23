@@ -1,0 +1,24 @@
+digraph G {
+rankdir=TB;
+graph [bgcolor="white",pad="0.2",nodesep="0.25",ranksep="0.35",fontname="DejaVu Sans",fontsize=14];
+node [shape=box,style="rounded,filled",fillcolor="#eff6ff",color="#64748b",fontname="DejaVu Sans",fontsize=10,margin="0.14,0.10"];
+edge [color="#475569",fontname="DejaVu Sans",fontsize=9];
+label="End-to-end project lifecycle";labelloc=t;
+a [label="Recover source, weights and provenance",fillcolor="#eff6ff"];
+b [label="Stage 1: request router + named LoRA experts",fillcolor="#eff6ff"];
+c [label="Source-pinned data, grouped splits and holdout isolation",fillcolor="#eff6ff"];
+d [label="Stage 2: native attention adaptation + calibration",fillcolor="#eff6ff"];
+e [label="Verified export, archive, serving and evaluation",fillcolor="#eff6ff"];
+f [label="Stage 3: expert-only / joint-gate pilots",fillcolor="#eff6ff"];
+g [label="Fixed export calibration + frozen three-arm comparison",fillcolor="#eff6ff"];
+h [label="No held-out proxy gain: retain candidate for research",fillcolor="#fff7ed"];
+i [label="Freeze experimentation; report, package and restricted demo",fillcolor="#eff6ff"];
+a -> b;
+b -> c;
+c -> d;
+d -> e;
+e -> f;
+f -> g;
+g -> h;
+h -> i;
+}

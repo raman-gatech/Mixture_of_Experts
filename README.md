@@ -57,8 +57,8 @@ This is not a claim of 10,072 simultaneous users or permanent live hosting.
 
 Read the [results report](docs/RESULTS.md), [technical case study](docs/CASE_STUDY.md),
 [system card](docs/SYSTEM_CARD.md), and [machine-readable results](reports/results.json).
-The consolidated report is available as a [PDF](reports/research-report.pdf)
-and [standalone HTML](reports/research-report.html).
+The full 69-page report (pipeline, system design, 12 flowcharts, results, issues and source inventory) is available as a [PDF](reports/comprehensive-20261022/COMPREHENSIVE_PROJECT_REPORT.pdf)
+and [standalone HTML](reports/comprehensive-20261022/COMPREHENSIVE_PROJECT_REPORT.html).
 
 ![Frozen automatic proxy comparison; not independently reviewed accuracy](docs/assets/frozen-comparison.png)
 

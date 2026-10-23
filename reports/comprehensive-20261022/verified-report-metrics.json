@@ -1,0 +1,86 @@
+{
+  "built_at_utc": "2026-10-23T01:44:58.068923+00:00",
+  "frozen_answers": {
+    "parent-baseline-256": {
+      "answers": 500,
+      "answers_sha256": "ad2bd8566223c4d9adba6549dc1bbf79059a96bd7487395cac75d386425eb3a9",
+      "truncated": 117,
+      "math_numeric_proxy_matches": 169,
+      "math_cases": 200,
+      "science_phrase_proxy_matches": 70,
+      "science_reference_cases": 100,
+      "quality_review": "pending; proxies are not attributed correctness",
+      "safety_intent_adjudication": "pending; publisher labels are not verified intent"
+    },
+    "parent-precision-512": {
+      "answers": 500,
+      "answers_sha256": "965460a7c18e23a38e6de621c1aa49fb8fe6e8a8e5ee49c37d4ef6e005f28556",
+      "truncated": 39,
+      "math_numeric_proxy_matches": 171,
+      "math_cases": 200,
+      "science_phrase_proxy_matches": 69,
+      "science_reference_cases": 100,
+      "quality_review": "pending; proxies are not attributed correctness",
+      "safety_intent_adjudication": "pending; publisher labels are not verified intent"
+    },
+    "candidate-precision-512": {
+      "answers": 500,
+      "answers_sha256": "46342f9ea5e61cded0f19aa8b037717054a523340239979678db392f47f2e781",
+      "truncated": 36,
+      "math_numeric_proxy_matches": 165,
+      "math_cases": 200,
+      "science_phrase_proxy_matches": 64,
+      "science_reference_cases": 100,
+      "quality_review": "pending; proxies are not attributed correctness",
+      "safety_intent_adjudication": "pending; publisher labels are not verified intent"
+    }
+  },
+  "paired_comparison": {
+    "all500_input_hashes_equal": true,
+    "math_proxy_gained": 9,
+    "math_proxy_lost": 15,
+    "scope": "Matched precision512 settings; numeric proxy only, not proof of improved overall accuracy"
+  },
+  "saved_usage_summary": {
+    "expert-only": {
+      "groups": 120,
+      "min_used_experts": 26,
+      "max_used_experts": 32,
+      "mean_entropy_over_ln32": 0.8424713630553147,
+      "scope": "Descriptive saved telemetry, not an independent experiment or proof of semantic specialization"
+    },
+    "joint-gates": {
+      "groups": 120,
+      "min_used_experts": 26,
+      "max_used_experts": 32,
+      "mean_entropy_over_ln32": 0.8422601138770388,
+      "scope": "Descriptive saved telemetry, not an independent experiment or proof of semantic specialization"
+    }
+  },
+  "cold_start": {
+    "6377096": {
+      "archive_boot_to_ready_seconds": 786.5321667150129,
+      "maximum_seconds": 600,
+      "passed": false
+    },
+    "6402339": {
+      "archive_boot_to_ready_seconds": 490.87288690707646,
+      "maximum_seconds": 600,
+      "passed": true
+    },
+    "6403909": {
+      "archive_boot_to_ready_seconds": 452.7428904499393,
+      "maximum_seconds": 600,
+      "passed": true
+    },
+    "6479705": {
+      "archive_boot_to_ready_seconds": 646.4893112049904,
+      "maximum_seconds": 600,
+      "passed": false
+    }
+  },
+  "production_accepted": false,
+  "answer_quality_accepted": false,
+  "independent_human_review": "pending",
+  "new_training_or_generation": false
+}

@@ -1,0 +1,26 @@
+digraph G {
+rankdir=TB;
+graph [bgcolor="white",pad="0.2",nodesep="0.25",ranksep="0.35",fontname="DejaVu Sans",fontsize=14];
+node [shape=box,style="rounded,filled",fillcolor="#eff6ff",color="#64748b",fontname="DejaVu Sans",fontsize=10,margin="0.14,0.10"];
+edge [color="#475569",fontname="DejaVu Sans",fontsize=9];
+label="Data preparation and leakage controls";labelloc=t;
+a [label="Pinned published sources + revisions + file hashes",fillcolor="#eff6ff"];
+b [label="Verify raw and inherited safety manifests",fillcolor="#eff6ff"];
+c [label="Canonical prompt/context keys; retain source IDs and annotations",fillcolor="#eff6ff"];
+d [label="Protect earlier heldouts; quarantine overlap/conflicting targets",fillcolor="#eff6ff"];
+e [label="Group shared passages, conversations and duplicate instructions",fillcolor="#eff6ff"];
+f [label="Preserve official splits; deterministic split for eligible groups",fillcolor="#eff6ff"];
+g [label="Cap training tasks; retain validation/test independently",fillcolor="#eff6ff"];
+h [label="Verify zero exact cross-split prompt/context overlap",fillcolor="#eff6ff"];
+i [label="Whole-example token filtering + response-only labels",fillcolor="#eff6ff"];
+j [label="Manifest: hashes, counts, exclusions, provenance and limitations",fillcolor="#eff6ff"];
+a -> b;
+b -> c;
+c -> d;
+d -> e;
+e -> f;
+f -> g;
+g -> h;
+h -> i;
+i -> j;
+}
