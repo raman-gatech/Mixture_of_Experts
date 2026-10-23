@@ -4,7 +4,7 @@
   "files_checked": 256,
   "errors": [],
   "credential_check_scope": "Known-pattern scan and excluded-file checks; not a universal secret detector",
-  "remote_ci_verified": false,
+  "remote_ci_verified": true,
   "independent_human_review": "pending",
   "production_accepted": false,
   "answer_quality_accepted": false,
@@ -68,6 +68,28 @@
   "remote_publication": {
     "repository": "https://github.com/raman-gatech/Mixture_of_Experts",
     "main_pushed": true,
-    "remote_ci": "Minimal checks passed; model-logic dependency setup corrected; checks rerunning"
+    "remote_ci": "All three jobs passed on 9d710df9d11a50fa521a36cd6308c88158c7566e"
+  },
+  "remote_ci": {
+    "verified_source_commit": "9d710df9d11a50fa521a36cd6308c88158c7566e",
+    "run_url": "https://github.com/raman-gatech/Mixture_of_Experts/actions/runs/39982076169",
+    "conclusion": "success",
+    "jobs": [
+      "cpu (3.10)",
+      "cpu (3.12)",
+      "model-logic"
+    ]
+  },
+  "fresh_remote_clone": {
+    "public_https_clone": true,
+    "verified_source_commit": "9d710df9d11a50fa521a36cd6308c88158c7566e",
+    "targeted_tests_passed": 21,
+    "failures": 0
+  },
+  "figure_layout": {
+    "all_source_svg_bounds_passed": 12,
+    "all_html_figure_sizes_passed": 18,
+    "pdf_out_of_page_objects": 0,
+    "pdf_pages": 68
   }
 }

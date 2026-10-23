@@ -1790,8 +1790,8 @@
   {
     "path": "tests/test_expert_pilot_controller.py",
     "purpose": "Controller proves readiness gates and crash-safe bounded scheduler behavior.",
-    "bytes": 11680,
-    "sha256": "db0ff024e5aa416aa296b248d89527a92caae6357b8f1a21432881faa50d1482",
+    "bytes": 12120,
+    "sha256": "609d3fe2eaf5fffc8b49f9f339cfd0d5158de5803e1b23e81b5b36826acca532",
     "definitions": [
       "setup",
       "Scheduler",
@@ -1809,7 +1809,9 @@
       "test_controlled_home_outputs_record_both_quotas_and_block_low_home",
       "test_home_path_cannot_redirect_to_other_storage",
       "test_duplicate_identical_home_mount_rows_allowed_but_conflict_rejected"
-    ]
+    ],
+    "report_build_snapshot_sha256": "db0ff024e5aa416aa296b248d89527a92caae6357b8f1a21432881faa50d1482",
+    "updated_for_publication": true
   },
   {
     "path": "tests/test_generated_export_archive.py",

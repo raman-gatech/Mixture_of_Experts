@@ -1063,8 +1063,10 @@
     "tests/test_expert_pilot_controller.py": {
       "source": "tests/test_expert_pilot_controller.py",
       "original_sha256": "db0ff024e5aa416aa296b248d89527a92caae6357b8f1a21432881faa50d1482",
-      "public_sha256": "db0ff024e5aa416aa296b248d89527a92caae6357b8f1a21432881faa50d1482",
-      "site_template_changed": false
+      "public_sha256": "609d3fe2eaf5fffc8b49f9f339cfd0d5158de5803e1b23e81b5b36826acca532",
+      "site_template_changed": false,
+      "export_snapshot_sha256": "db0ff024e5aa416aa296b248d89527a92caae6357b8f1a21432881faa50d1482",
+      "release_documentation_updated_after_export": true
     },
     "tests/test_generated_export_archive.py": {
       "source": "tests/test_generated_export_archive.py",
