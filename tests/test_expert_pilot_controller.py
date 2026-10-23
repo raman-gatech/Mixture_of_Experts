@@ -210,7 +210,17 @@ def test_home_path_cannot_redirect_to_other_storage():
 
 
 def test_duplicate_identical_home_mount_rows_allowed_but_conflict_rejected(monkeypatch):
-    user=c.getpass.getuser();parent=Path('/home/hice1')/user
+    # The mount/quota records are synthetic. Do not require the ICE user's real
+    # home directory to exist on portable CI runners.
+    user='ci-researcher'
+    monkeypatch.setattr(c.getpass,'getuser',lambda:user)
+    parent=Path('/home/hice1')/user
+    actual_stat=Path.stat
+    def fixture_stat(path,*args,**kwargs):
+        if path==parent:
+            return SimpleNamespace(st_uid=c.os.getuid())
+        return actual_stat(path,*args,**kwargs)
+    monkeypatch.setattr(Path,'stat',fixture_stat)
     root=parent/'moe-stage3-runs'
     mount=f'{parent} nfs4 server:/ice/home/3/3/{user}'
     quota=f'Disk quotas for user {user} (uid123):\nserver:/ice/home 25000000 31457280 31457280 200000 999999 999999\n'
